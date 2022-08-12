@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://assets/Action RPG Resources/Player/Player.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 4.0
+height = 6.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Player"
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "right"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "up"
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -10 )
+texture = ExtResource( 2 )
+hframes = 63
+frame = 1
+
+[node name="Colide" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/Player = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+anims/right = SubResource( 6 )
+anims/up = SubResource( 7 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../animation")
+active = true
+parameters/playback = SubResource( 9 )
