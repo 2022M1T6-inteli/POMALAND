@@ -16,7 +16,7 @@ O nosso projeto propõe um meio de adaptação para os novos funcionários da DE
 <br><br>
 <p align="center">
 <img src="https://i.imgur.com/D5VzuU5.png" alt="NOME DO JOGO" border="0">
-  Game by <a href="http://www.nyphotographic.com/">Nick Youngson</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+  Game by <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victorbarq/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a> <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href= "https://www.inteli.edu.br/">Inteli</a>
 </p>
 
 
