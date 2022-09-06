@@ -1,7 +1,9 @@
 extends Control
 
+var scene
+
 func _on_BackBtn_pressed():
-	get_tree().change_scene("res://Scenes/Menu.tscn")
+	scene = get_tree().change_scene("res://Scenes/Menu.tscn")
 
 func _ready():
 	$CenterContainer2/BackBtn.grab_focus()

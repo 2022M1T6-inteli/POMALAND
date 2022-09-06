@@ -1,7 +1,8 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/Physics Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Maps/Images/Modern Interiors Free v2.2/Adam_16x16.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Adam_16x16.png" type="Texture" id=2]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.0

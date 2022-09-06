@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Maps/Images/Custom/Pomaland-BG2.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Maps/Images/Custom/Controls.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Custom/Pomaland-BG2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/Custom/Controls.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/PressStart2P.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Src/Options.gd" type="Script" id=4]
 
@@ -20,6 +20,7 @@ font_data = ExtResource( 3 )
 [node name="Options" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
