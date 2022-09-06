@@ -1,4 +1,5 @@
-extends Sprite
+extends CanvasLayer
+
 # variables 
 var pag = 0
 var mensagem
@@ -21,7 +22,7 @@ var texts = [
 func _process(_delta):	
 	if(pag>=0):
 		mensagem = str(texts[pag])
-	$Panel/Label.set_text(str(mensagem))
+	$Control/Sprite/Panel/Label.set_text(str(mensagem))
 	if pag >= 11 || pag<0:
 		hide()
 		pag = 1

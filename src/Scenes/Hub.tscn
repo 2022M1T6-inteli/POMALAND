@@ -10,8 +10,7 @@
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Fonts/zrnic___.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Assets/Images/Custom/Pngtreeblack and yellow line quotes_7947991.png" type="Texture" id=10]
-[ext_resource path="res://Src/Sprite.gd" type="Script" id=11]
-
+[ext_resource path="res://Src/Dialogue 1.gd" type="Script" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=142]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -41214,23 +41213,23 @@ shape = SubResource( 159 )
 position = Vector2( 0, 2.5 )
 shape = SubResource( 168 )
 
-[node name="CanvasLayer1" type="CanvasLayer" parent="NPC"]
+[node name="Dialogue 1" type="CanvasLayer" parent="NPC"]
+script = ExtResource( 12 )
 
-[node name="Control" type="Control" parent="NPC/CanvasLayer1"]
+[node name="Control" type="Control" parent="NPC/Dialogue 1"]
 margin_left = 94.0
 margin_top = 170.0
 margin_right = 390.0
 margin_bottom = 244.0
 
-[node name="Sprite" type="Sprite" parent="NPC/CanvasLayer1/Control"]
+[node name="Sprite" type="Sprite" parent="NPC/Dialogue 1/Control"]
 visible = false
 position = Vector2( -12, -32 )
 scale = Vector2( 0.0642, 0.0284 )
 texture = ExtResource( 10 )
 centered = false
-script = ExtResource( 11 )
 
-[node name="Panel" type="Panel" parent="NPC/CanvasLayer1/Control/Sprite"]
+[node name="Panel" type="Panel" parent="NPC/Dialogue 1/Control/Sprite"]
 modulate = Color( 1, 1, 1, 0.537255 )
 self_modulate = Color( 1, 1, 1, 0.764706 )
 margin_left = 389.0
@@ -41238,7 +41237,7 @@ margin_top = 1655.0
 margin_right = 4611.0
 margin_bottom = 3275.0
 
-[node name="Label" type="Label" parent="NPC/CanvasLayer1/Control/Sprite/Panel"]
+[node name="Label" type="Label" parent="NPC/Dialogue 1/Control/Sprite/Panel"]
 margin_left = 63.0
 margin_top = 106.0
 margin_right = 4190.0
@@ -41339,7 +41338,8 @@ margin_bottom = 28.0
 custom_fonts/font = SubResource( 167 )
 autowrap = true
 
-[connection signal="area_shape_entered" from="NPC/Area2D" to="NPC/CanvasLayer1/Control/Sprite" method="_on_Area2D_area_shape_entered"]
+[connection signal="area_shape_entered" from="NPC/Area2D" to="NPC/Dialogue 1" method="_on_Area2D_area_shape_entered"]
+[connection signal="area_shape_entered" from="NPC/Area2D" to="NPC/Dialogue 1/Control/Sprite" method="_on_Area2D_area_shape_entered"]
 [connection signal="pressed" from="CanvasLayer/Pause/CenterContainer/VBoxContainer/Return" to="CanvasLayer/Pause" method="_on_Return_pressed"]
 [connection signal="pressed" from="CanvasLayer/Pause/CenterContainer/VBoxContainer/Quit" to="CanvasLayer/Pause" method="_on_Quit_pressed"]
 [connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
