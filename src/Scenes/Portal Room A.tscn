@@ -23318,7 +23318,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 8, 8 )
+extents = Vector2( 8, 12 )
 
 [node name="Portal Room A" type="Node2D"]
 script = ExtResource( 5 )
@@ -23363,6 +23363,7 @@ position = Vector2( 88, 88 )
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -23372,7 +23373,7 @@ polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
 [node name="interact" type="Area2D" parent="YSort/Portal 1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Portal 1/interact"]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 12 )
 shape = SubResource( 27 )
 
 [node name="Portal 2" type="StaticBody2D" parent="YSort"]
@@ -23381,7 +23382,6 @@ position = Vector2( 216, 88 )
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 2"]
 position = Vector2( 0, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -23391,10 +23391,10 @@ polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
 [node name="interact" type="Area2D" parent="YSort/Portal 2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Portal 2/interact"]
-position = Vector2( 0, 16 )
+position = Vector2( 0, 12 )
 shape = SubResource( 27 )
 
 [node name="Physics Player" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 152, 224 )
+position = Vector2( 152, 208 )
 
 [connection signal="body_entered" from="YSort/Portal 2/interact" to="." method="_on_interact2_body_entered"]

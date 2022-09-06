@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dialogueBox.png-70c8dc8603cf04c87ec2d985ea336cf8.stex"
+path="res://.import/dBox3.png-be092294e2c35a6a265597726f5a1ab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Custom/dialogueBox.png"
-dest_files=[ "res://.import/dialogueBox.png-70c8dc8603cf04c87ec2d985ea336cf8.stex" ]
+source_file="res://Assets/Images/Custom/dbox/dBox3.png"
+dest_files=[ "res://.import/dBox3.png-be092294e2c35a6a265597726f5a1ab9.stex" ]
 
 [params]
 

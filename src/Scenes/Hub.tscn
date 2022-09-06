@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=2]
@@ -8,9 +8,12 @@
 [ext_resource path="res://Src/Pause.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Interiors_free_16x16.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Fonts/zrnic___.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Assets/Images/Custom/Pngtreeblack and yellow line quotes_7947991.png" type="Texture" id=10]
-[ext_resource path="res://Src/Dialogue 1.gd" type="Script" id=12]
+[ext_resource path="res://Src/EarthquakeElevator.gd" type="Script" id=9]
+[ext_resource path="res://Src/Meneguzzi.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Images/Custom/dbox/dBox2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Images/Custom/dbox/dBox3.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Images/Custom/dbox/dBox0.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Images/Custom/dbox/dBox1.png" type="Texture" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=142]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -41014,23 +41017,21 @@ resource_name = "Interiors_free_16x16"
 1424/shapes = [  ]
 1424/z_index = 0
 
-[sub_resource type="CapsuleShape2D" id=158]
-radius = 1.33333
-height = 2.00001
+[sub_resource type="RectangleShape2D" id=175]
+extents = Vector2( 25, 5 )
 
-[sub_resource type="RectangleShape2D" id=159]
-extents = Vector2( 7.5, 7.5 )
+[sub_resource type="RectangleShape2D" id=172]
+extents = Vector2( 40, 56 )
 
-[sub_resource type="RectangleShape2D" id=168]
-extents = Vector2( 40, 55.5 )
+[sub_resource type="RectangleShape2D" id=173]
 
-[sub_resource type="Theme" id=170]
-
-[sub_resource type="DynamicFont" id=171]
-size = 200
-extra_spacing_top = 40
-extra_spacing_bottom = 40
-font_data = ExtResource( 9 )
+[sub_resource type="SpriteFrames" id=174]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=10]
 size = 30
@@ -41053,32 +41054,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="Theme" id=9]
 Button/styles/focus = SubResource( 6 )
-
-[sub_resource type="StyleBoxFlat" id=161]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=162]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=163]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=164]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="StyleBoxFlat" id=165]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-[sub_resource type="Theme" id=166]
-Button/styles/disabled = SubResource( 161 )
-Button/styles/focus = SubResource( 162 )
-Button/styles/hover = SubResource( 163 )
-Button/styles/normal = SubResource( 164 )
-Button/styles/pressed = SubResource( 165 )
-
-[sub_resource type="DynamicFont" id=167]
-size = 3
-font_data = ExtResource( 5 )
 
 [node name="Hub" type="Node2D"]
 
@@ -41170,6 +41145,13 @@ cell_clip_uv = true
 format = 1
 tile_data = PoolIntArray( 23, 417, 0, 24, 418, 0, 25, 419, 0, 26, 420, 0, 65559, 433, 0, 65560, 434, 0, 65561, 435, 0, 65562, 436, 0 )
 
+[node name="ElevatorArea" type="Area2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorArea"]
+position = Vector2( 407, 35 )
+shape = SubResource( 175 )
+
 [node name="Button" type="TileMap" parent="."]
 tile_set = SubResource( 27 )
 cell_size = Vector2( 16, 16 )
@@ -41189,102 +41171,82 @@ tile_data = PoolIntArray( 3, 24, 0, 4, 25, 0, 5, 25, 0, 6, 25, 0, 7, 25, 0, 8, 2
 [node name="Physics Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 72, 128 )
 
-[node name="NPC" type="RigidBody2D" parent="."]
+[node name="Meneguzzi" type="StaticBody2D" parent="."]
 position = Vector2( 408, 131 )
-mass = 0.00102041
-can_sleep = false
+script = ExtResource( 11 )
 
-[node name="Bob" type="Sprite" parent="NPC"]
+[node name="Bob" type="Sprite" parent="Meneguzzi"]
 texture = ExtResource( 8 )
 hframes = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-position = Vector2( 1, -2 )
-scale = Vector2( 6, 6 )
-shape = SubResource( 158 )
+[node name="Dialogue 1" type="CanvasLayer" parent="Meneguzzi"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="NPC"]
-position = Vector2( -0.5, 19.5 )
-shape = SubResource( 159 )
+[node name="CenterContainer" type="CenterContainer" parent="Meneguzzi/Dialogue 1"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -270.0
+margin_right = 240.0
 
-[node name="Area2D" type="Area2D" parent="NPC"]
+[node name="Label" type="Label" parent="Meneguzzi/Dialogue 1/CenterContainer"]
+margin_top = 234.0
+margin_right = 480.0
+margin_bottom = 270.0
+text = "asdfasfasdfsafasdf"
+align = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/Area2D"]
-position = Vector2( 0, 2.5 )
-shape = SubResource( 168 )
+[node name="Area2D" type="Area2D" parent="Meneguzzi"]
 
-[node name="Dialogue 1" type="CanvasLayer" parent="NPC"]
-script = ExtResource( 12 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meneguzzi/Area2D"]
+position = Vector2( 0, 5 )
+shape = SubResource( 172 )
 
-[node name="Control" type="Control" parent="NPC/Dialogue 1"]
-margin_left = 94.0
-margin_top = 170.0
-margin_right = 390.0
-margin_bottom = 244.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Meneguzzi"]
+shape = SubResource( 173 )
 
-[node name="Sprite" type="Sprite" parent="NPC/Dialogue 1/Control"]
+[node name="dbox" type="AnimatedSprite" parent="Meneguzzi"]
 visible = false
-position = Vector2( -12, -32 )
-scale = Vector2( 0.0642, 0.0284 )
-texture = ExtResource( 10 )
-centered = false
+position = Vector2( 0, -19 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 174 )
+frame = 2
+speed_scale = 0.8
+playing = true
 
-[node name="Panel" type="Panel" parent="NPC/Dialogue 1/Control/Sprite"]
-modulate = Color( 1, 1, 1, 0.537255 )
-self_modulate = Color( 1, 1, 1, 0.764706 )
-margin_left = 389.0
-margin_top = 1655.0
-margin_right = 4611.0
-margin_bottom = 3275.0
+[node name="Pause Canvas" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="NPC/Dialogue 1/Control/Sprite/Panel"]
-margin_left = 63.0
-margin_top = 106.0
-margin_right = 4190.0
-margin_bottom = 1549.0
-theme = SubResource( 170 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 171 )
-text = "rctvyjbknimlknbjhgcfrtdfyughjbvfgctgyhbjnbvfcgyhbjndcfgvhbjfcgvhbj bvgftyguhjbgvyhbjnhbvfgcvthjb vghb nvfgcvhbjgvhbj"
-autowrap = true
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Pause" type="Control" parent="CanvasLayer"]
+[node name="Pause" type="Control" parent="Pause Canvas"]
 pause_mode = 2
 visible = false
 margin_right = 480.0
 margin_bottom = 270.0
 script = ExtResource( 6 )
 
-[node name="BG" type="ColorRect" parent="CanvasLayer/Pause"]
+[node name="BG" type="ColorRect" parent="Pause Canvas/Pause"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0980392, 0.0980392, 0.192157, 0.878431 )
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Pause"]
+[node name="CenterContainer" type="CenterContainer" parent="Pause Canvas/Pause"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause Canvas/Pause/CenterContainer"]
 margin_left = 122.0
 margin_top = 108.0
 margin_right = 358.0
 margin_bottom = 162.0
 custom_constants/separation = 5
 
-[node name="Pause" type="Label" parent="CanvasLayer/Pause/CenterContainer/VBoxContainer"]
+[node name="Pause" type="Label" parent="Pause Canvas/Pause/CenterContainer/VBoxContainer"]
 margin_right = 236.0
 custom_fonts/font = SubResource( 10 )
 text = "PAUSE"
 align = 1
 
-[node name="Return" type="Button" parent="CanvasLayer/Pause/CenterContainer/VBoxContainer"]
+[node name="Return" type="Button" parent="Pause Canvas/Pause/CenterContainer/VBoxContainer"]
 margin_top = 5.0
 margin_right = 236.0
 margin_bottom = 27.0
@@ -41294,7 +41256,7 @@ custom_fonts/font = SubResource( 8 )
 text = "Return to Game"
 flat = true
 
-[node name="Quit" type="Button" parent="CanvasLayer/Pause/CenterContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Pause Canvas/Pause/CenterContainer/VBoxContainer"]
 margin_top = 32.0
 margin_right = 236.0
 margin_bottom = 54.0
@@ -41304,42 +41266,8 @@ custom_fonts/font = SubResource( 8 )
 text = "Quit Game"
 flat = true
 
-[node name="Control" type="Control" parent="."]
-margin_left = -2.0
-margin_top = 3.0
-margin_right = 481.0
-margin_bottom = 272.0
-
-[node name="Button" type="Button" parent="Control"]
-margin_left = 401.0
-margin_top = 113.0
-margin_right = 421.0
-margin_bottom = 139.0
-theme = SubResource( 166 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 0 )
-custom_colors/font_color_focus = Color( 0, 0, 0, 0 )
-custom_colors/font_color = Color( 0, 0, 0, 0 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 0 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 0 )
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-visible = false
-margin_left = 354.0
-margin_top = 147.0
-margin_right = 456.0
-margin_bottom = 177.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="texto" type="Label" parent="Control/ColorRect"]
-margin_left = 2.0
-margin_top = 3.0
-margin_right = 100.0
-margin_bottom = 28.0
-custom_fonts/font = SubResource( 167 )
-autowrap = true
-
-[connection signal="area_shape_entered" from="NPC/Area2D" to="NPC/Dialogue 1" method="_on_Area2D_area_shape_entered"]
-[connection signal="area_shape_entered" from="NPC/Area2D" to="NPC/Dialogue 1/Control/Sprite" method="_on_Area2D_area_shape_entered"]
-[connection signal="pressed" from="CanvasLayer/Pause/CenterContainer/VBoxContainer/Return" to="CanvasLayer/Pause" method="_on_Return_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause/CenterContainer/VBoxContainer/Quit" to="CanvasLayer/Pause" method="_on_Quit_pressed"]
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
+[connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]
+[connection signal="body_entered" from="Meneguzzi/Area2D" to="Meneguzzi" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Meneguzzi/Area2D" to="Meneguzzi" method="_on_Area2D_body_exited"]
+[connection signal="pressed" from="Pause Canvas/Pause/CenterContainer/VBoxContainer/Return" to="Pause Canvas/Pause" method="_on_Return_pressed"]
+[connection signal="pressed" from="Pause Canvas/Pause/CenterContainer/VBoxContainer/Quit" to="Pause Canvas/Pause" method="_on_Quit_pressed"]
