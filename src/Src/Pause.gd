@@ -19,7 +19,6 @@ func _on_Return_pressed():
 	get_tree().paused = false
 	PauseSwitch = not PauseSwitch
 	visible = PauseSwitch
-	
-# Press quit to quit to menu
-func _on_Quit_pressed():
+
+func _on_Menu_pressed():
 	get_tree().quit()
