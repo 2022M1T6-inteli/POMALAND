@@ -263,5 +263,3 @@ zoom = Vector2( 0.6, 0.6 )
 process_mode = 0
 smoothing_enabled = true
 smoothing_speed = 3.0
-
-[node name="Area2D" type="Area2D" parent="."]

@@ -25,17 +25,21 @@ margin_top = 182.0
 margin_right = 440.0
 margin_bottom = 258.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = 63.0
+margin_left = 55.0
 margin_top = 194.0
-margin_right = 203.0
-margin_bottom = 204.0
+margin_right = 406.0
+margin_bottom = 241.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Text goes here"
+autowrap = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 426, 244 )

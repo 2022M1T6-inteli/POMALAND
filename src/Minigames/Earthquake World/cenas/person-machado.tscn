@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Minigames/Earthquake World/scripts/person-machado.gd" type="Script" id=1]
+[ext_resource path="res://Minigames/Earthquake World/characters/Personagem-machado.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 48 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "atack"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.201, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 748, 748, 751, 751, 754, 757, 760, 760 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, false, false, false, false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "dead"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 480, 480, 481, 485 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 48, 49, 50, 51, 52, 53, 54 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 267, 268, 269, 270, 271, 272 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 11, 10 )
+
+[node name="person-machado" type="KinematicBody2D" groups=["player"]]
+script = ExtResource( 1 )
+speed = 70
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/atack = SubResource( 5 )
+anims/dead = SubResource( 6 )
+anims/idle = SubResource( 2 )
+anims/walk = SubResource( 3 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 3, -6 )
+shape = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+current = true
+zoom = Vector2( 0.7, 0.7 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+hframes = 24
+vframes = 33
+frame = 48
+region_rect = Rect2( 0, 0, 1159.52, 2102.08 )
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2( 10, 4 )
+shape = SubResource( 7 )
+
+[connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]
