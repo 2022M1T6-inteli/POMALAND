@@ -4,25 +4,22 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# POMA Land
+# PomaLand
 
 ## Thunder Tech
 
 ## Integrantes: <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victorbarq/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a>
 
 ## Descrição
+> O projeto foi desenvolvido pelo grupo Thunder Tech, no módulo 1 da turma de 2022.2 da Inteli (Instituto de Tecnologia e Liderança). A equipe propôs um jogo para ajudar certas carências propostas pela Dell.
 
-O nosso projeto propõe um meio de adaptação para os novos funcionários da DELL com realação a mudança do modelo de projeto para o modelo de produto (POMA)
 <br><br>
 <p align="center">
 <img src="https://i.imgur.com/D5VzuU5.png" alt="NOME DO JOGO" border="0">
   Game by <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victorbarq/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a> // <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href= "https://www.inteli.edu.br/">Inteli</a>
 </p>
-
-
-💡 De um a dois parágrafos sobre o que é seu projeto e o que ele faz.
 <br><br>
-Meu projeto ajuda estudantes inteli a configurarem seus githubs.
+Nosso projeto serve como um método de suporte aos funcionários recém contratados na Dell Brasil. O objetivo principal é fazé-los entender o novo modelo de produto implementado pela empresa. Assim, por meio de mecânicas únicas e divertidas, o jogador consegue absorver o conteúdo de forma lúdica e gamificada.
 <br><br>
 May the force be with you!
 <br><br>
@@ -60,11 +57,6 @@ Há também 4 pastas que seguem da seguinte forma:
 
 ## 🛠 Instalação
 
-<b>Android:</b>
-
-Faça o Download do JOGO.apk no seu celular.
-Execute o APK e siga as instruções de seu telefone.
-
 <b>Windows:</b>
 
 Não há instalação! Apenas executável!
@@ -83,7 +75,7 @@ Encontre o index.html na pasta executáveis e execute-o como uma página WEB (at
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
--<a href="https://godotengine.org/download">GODOT</a>
+-<a href="https://godotengine.org/download"> GODOT</a>
 
 ## 🗃 Histórico de lançamentos
 
