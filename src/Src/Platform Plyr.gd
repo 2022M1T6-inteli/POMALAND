@@ -55,3 +55,4 @@ func Movement(delta):
 
 func _physics_process(delta):
 	Movement(delta)
+

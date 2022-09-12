@@ -3,6 +3,7 @@ extends StaticBody2D
 var onArea: bool
 var dialoguePart = 0
 var texts = [
+	"null",
 	"(Meneguzzi): Aahh, quick! here! . I do not have much time….",
 	"(Cleiton): What happened? Where is everyone?",
 	"(Meneguzzi): Everyone is infected with the \n mpj-1 virus and as far as I know we are the \n only survivors…",

@@ -23370,6 +23370,7 @@ shape = SubResource( 28 )
 
 [node name="Portal 1" type="StaticBody2D" parent="YSort"]
 position = Vector2( 88, 88 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
@@ -23389,6 +23390,7 @@ shape = SubResource( 27 )
 
 [node name="Portal 2" type="StaticBody2D" parent="YSort"]
 position = Vector2( 216, 88 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 2"]
 position = Vector2( 0, 8 )

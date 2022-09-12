@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	if Global.PortalRoom == "Earthquake":
+	if Global.portalRoom == "Earthquake":
 		$"Physics Player".position = Vector2(401, 37)
 
 
