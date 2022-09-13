@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water.png-b622fa778e3de6398ac788100ab23da4.stex"
+path="res://.import/Room_Builder_Office_16x16.png-55eb91a43419a3bd988ad4f13845d145.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Custom/water.png"
-dest_files=[ "res://.import/water.png-b622fa778e3de6398ac788100ab23da4.stex" ]
+source_file="res://Minigames/Water World/Assets/Images/Custom/Room_Builder_Office_16x16.png"
+dest_files=[ "res://.import/Room_Builder_Office_16x16.png-55eb91a43419a3bd988ad4f13845d145.stex" ]
 
 [params]
 
