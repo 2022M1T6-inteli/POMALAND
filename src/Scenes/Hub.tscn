@@ -41019,7 +41019,7 @@ resource_name = "Interiors_free_16x16"
 1424/z_index = 0
 
 [sub_resource type="RectangleShape2D" id=175]
-extents = Vector2( 25, 5 )
+extents = Vector2( 24, 5 )
 
 [sub_resource type="RectangleShape2D" id=172]
 extents = Vector2( 40, 56 )
@@ -41124,6 +41124,14 @@ cell_y_sort = true
 cell_clip_uv = true
 format = 1
 tile_data = PoolIntArray( 23, 417, 0, 24, 418, 0, 25, 419, 0, 26, 420, 0, 65559, 433, 0, 65560, 434, 0, 65561, 435, 0, 65562, 436, 0 )
+
+[node name="FAZERRRRR" type="Area2D" parent="."]
+position = Vector2( 9, 29 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FAZERRRRR"]
+position = Vector2( 450, 107 )
+rotation = -1.57079
+shape = SubResource( 175 )
 
 [node name="ElevatorArea" type="Area2D" parent="."]
 script = ExtResource( 9 )

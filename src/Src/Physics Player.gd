@@ -35,7 +35,7 @@ func animate() -> void:
 func _physics_process(_delta: float) -> void:
 	move()
 	animate()
-
+	print(position)
 
 func _on_Button_pressed():
 	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Interiors_free_16x16.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Room_Builder_Office_16x16.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Physics Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Images/Custom/water.png" type="Texture" id=6]
+[ext_resource path="res://Src/Portal Room B.gd" type="Script" id=7]
+[ext_resource path="res://Src/Water Portal A.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 0, 11.529, 16, 11.6845, 16, 16, 0, 16 )
@@ -38399,7 +38401,11 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 8, 12 )
 
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 5, 24 )
+
 [node name="Portal Room B" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -38441,51 +38447,36 @@ cell_clip_uv = true
 format = 1
 tile_data = PoolIntArray( 0, 2296, 0, 14, 2298, 0, 65536, 2312, 0, 65550, 2314, 0, 131072, 2312, 0, 131086, 2314, 0, 196608, 2312, 0, 196622, 2314, 0, 262144, 2312, 0, 262158, 2314, 0, 327680, 2312, 0, 327694, 2314, 0, 393216, 2312, 0, 393230, 2314, 0, 458752, 2312, 0, 458766, 2314, 0, 524288, 2312, 0, 524302, 2314, 0, 589824, 2312, 0, 589838, 2314, 0, 655360, 2328, 0, 655361, 2329, 0, 655362, 2329, 0, 655363, 2329, 0, 655364, 2329, 0, 655365, 2329, 0, 655366, 2329, 0, 655367, 2329, 0, 655368, 2329, 0, 655369, 2329, 0, 655370, 2329, 0, 655371, 2329, 0, 655372, 2329, 0, 655373, 2329, 0, 655374, 2330, 0 )
 
-[node name="Physics Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 26, 77 )
+[node name="YSort" type="YSort" parent="."]
 
-[node name="Portal 1" type="StaticBody2D" parent="."]
+[node name="Physics Player" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 36, 79 )
+
+[node name="Portal 1" type="StaticBody2D" parent="YSort"]
 position = Vector2( 200, 53 )
 scale = Vector2( 1.5, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite" type="AnimatedSprite" parent="Portal 1"]
+[node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
 frames = SubResource( 33 )
 frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
-[node name="Collision" type="CollisionPolygon2D" parent="Portal 1"]
+[node name="Collision" type="CollisionPolygon2D" parent="YSort/Portal 1"]
 polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
 
-[node name="interact" type="Area2D" parent="Portal 1"]
+[node name="interact" type="Area2D" parent="YSort/Portal 1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal 1/interact"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Portal 1/interact"]
 position = Vector2( 0, 12 )
 shape = SubResource( 34 )
 
-[node name="Portal 2" type="StaticBody2D" parent="."]
-position = Vector2( 200, 53 )
-scale = Vector2( 1.5, 1.5 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="ElevatorArea" type="Area2D" parent="."]
+script = ExtResource( 8 )
 
-[node name="Sprite" type="AnimatedSprite" parent="Portal 2"]
-position = Vector2( 0, 8 )
-frames = SubResource( 33 )
-frame = 1
-playing = true
-offset = Vector2( 0, -8 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorArea"]
+position = Vector2( 21, 88 )
+shape = SubResource( 35 )
 
-[node name="Collision" type="CollisionPolygon2D" parent="Portal 2"]
-polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
-
-[node name="interact" type="Area2D" parent="Portal 2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal 2/interact"]
-position = Vector2( 0, 12 )
-shape = SubResource( 34 )
+[connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]

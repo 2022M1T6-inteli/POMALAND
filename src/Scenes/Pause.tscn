@@ -31,6 +31,7 @@ Button/styles/focus = SubResource( 14 )
 
 [node name="Pause" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 480.0
 margin_bottom = 270.0
 script = ExtResource( 2 )
