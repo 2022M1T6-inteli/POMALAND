@@ -2,11 +2,11 @@ extends TextureRect
 
 var onArea: bool
 var dialoguePart = 0
-var texts = ["null", "1", "2", "3", "<-----------"]
+var texts = ["null", "1", "2", "4", "<-----------"]
 var finishDialogue1: bool
 
-onready var holeS = get_node("/root/Water 1/HoleS")
 onready var holeM = get_node("/root/Water 1/HoleM")
+onready var holeL = get_node("/root/Water 1/HoleL")
 
 func _ready():
 	$dbox.visible = false
@@ -30,8 +30,9 @@ func ShowDialogue():
 			if dialoguePart == len(texts) - 1:
 				finishDialogue1 = true
 				dialoguePart = 0
-				holeS.visible = false
-				holeM.visible = true
+				if holeM.visible == true:
+					holeM.visible = false
+					holeL.visible = true
 				$"Dialogue 1/AnimatedSprite".visible = true
 				$"Dialogue 1".visible = false
 			else:

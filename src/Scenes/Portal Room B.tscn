@@ -38459,7 +38459,6 @@ scale = Vector2( 1.5, 1.5 )
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
 frames = SubResource( 33 )
-frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -38479,4 +38478,5 @@ script = ExtResource( 8 )
 position = Vector2( 21, 88 )
 shape = SubResource( 35 )
 
+[connection signal="body_entered" from="YSort/Portal 1/interact" to="ElevatorArea" method="_on_interact_body_entered"]
 [connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]
