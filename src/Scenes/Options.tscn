@@ -57,4 +57,9 @@ custom_fonts/font = SubResource( 4 )
 text = "Back"
 flat = true
 
+[node name="LangButton" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+
 [connection signal="pressed" from="CenterContainer2/BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="LangButton" to="." method="_on_LangButton_pressed"]
