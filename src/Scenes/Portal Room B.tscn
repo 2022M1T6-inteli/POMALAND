@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Interiors_free_16x16.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Images/Custom/water.png" type="Texture" id=6]
 [ext_resource path="res://Src/Portal Room B.gd" type="Script" id=7]
 [ext_resource path="res://Src/Water Portal A.gd" type="Script" id=8]
+[ext_resource path="res://Sounds/Lullaby - JVNA - Water Elevator.mp3" type="AudioStream" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
 points = PoolVector2Array( 0, 11.529, 16, 11.6845, 16, 16, 0, 16 )
@@ -38477,6 +38478,10 @@ script = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorArea"]
 position = Vector2( 21, 88 )
 shape = SubResource( 35 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 
 [connection signal="body_entered" from="YSort/Portal 1/interact" to="ElevatorArea" method="_on_interact_body_entered"]
 [connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]

@@ -33,7 +33,8 @@ func ShowDialogue1():
 		dialoguePart = 0
 
 func ArrowInvisible(dial):
-	if dialoguePart == len(dial) - 2:
+	$"Dialogue 1/AnimatedSprite".visible = true
+	if dialoguePart >= len(dial) - 1:
 		$"Dialogue 1/AnimatedSprite".visible = false
 
 func ChangeDialogue(dial):

@@ -8,6 +8,7 @@ var camOriginal = Vector2(241, 134)
 
 func _ready():
 	$HoleS.visible = true
+	$CanvasLayer/KeyGui.visible = false
 	
 func FollowPlayer():
 	if plyr.position.y <= 140:

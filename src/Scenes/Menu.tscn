@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/PressStart2P.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Src/Menu.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Images/Custom/Pomaland-BG2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/Custom/Pomaland-title.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/Inhale - VYEN - Menu.mp3" type="AudioStream" id=5]
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -97,6 +98,10 @@ custom_colors/font_color_hover = Color( 0.839216, 0.905882, 0.286275, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Quit Game"
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="pressed" from="Center/Vertical/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Center/Vertical/Options" to="." method="_on_Options_pressed"]

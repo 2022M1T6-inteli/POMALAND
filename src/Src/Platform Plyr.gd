@@ -30,7 +30,7 @@ func Jump(delta):
 	var jumpForce: float
 	var maxForce = 1000
 	if is_on_floor():
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("ui_jump"):
 			motionVector.x = 0
 			jumpRawForce += timeFactor * delta
 			if jumpRawForce > maxForce:
@@ -39,7 +39,7 @@ func Jump(delta):
 				jumpRawDir = speed
 			elif Input.is_action_just_pressed("ui_left")  or Input.is_action_pressed("ui_left"):
 				jumpRawDir = -speed
-		if Input.is_action_just_released("ui_up"):
+		if Input.is_action_just_released("ui_jump"):
 			jumpForce = jumpRawForce
 			jumpDir = jumpRawDir
 			jumpRawForce = 0
