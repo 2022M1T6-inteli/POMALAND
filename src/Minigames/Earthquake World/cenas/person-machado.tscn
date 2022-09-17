@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/scripts/person-machado.gd" type="Script" id=1]
-[ext_resource path="res://Minigames/Earthquake World/characters/Personagem-machado.png" type="Texture" id=2]
+[ext_resource path="res://Minigames/Earthquake World/characters/player.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ 48 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Area2D/collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -32,7 +32,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "atack"
-length = 0.7
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -40,28 +40,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.201, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 748, 748, 751, 751, 754, 757, 760, 760 ]
+"values": [ 11, 12, 13, 14 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AttackArea/CollisionShape2D:disabled")
+tracks/1/path = NodePath("Area2D/collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, true, true, false, false, false, false ]
+"values": [ true, false, true ]
 }
 
 [sub_resource type="Animation" id=6]
 resource_name = "dead"
 length = 0.7
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -69,32 +68,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 480, 480, 481, 485 ]
+"values": [ 24, 25, 26 ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
-length = 0.8
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 48, 49, 50, 51, 52, 53, 54 ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "walk"
-length = 0.8
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -106,18 +88,35 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 267, 268, 269, 270, 271, 272 ]
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8, 9, 10, 11 ]
 }
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 15.0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 11, 10 )
 
 [node name="person-machado" type="KinematicBody2D" groups=["player"]]
 script = ExtResource( 1 )
 speed = 70
+health = 50
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
@@ -139,17 +138,16 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-hframes = 24
-vframes = 33
-frame = 48
+hframes = 6
+vframes = 5
+frame = 14
 region_rect = Rect2( 0, 0, 1159.52, 2102.08 )
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["playerAttack"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2( 10, 4 )
+[node name="collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 21, 10 )
 shape = SubResource( 7 )
 
 [connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]

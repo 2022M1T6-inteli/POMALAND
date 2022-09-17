@@ -6,6 +6,7 @@ onready var sprite: Sprite = get_node("Sprite")
 var player_ref = null
 var velocity: Vector2
 export (int) var speed
+# var dead = load("res:://Minigames/Eartquake World/scripts/person-machado.gd").new()
 
 # function physics
 func _physics_process(_delta:float) -> void:
@@ -19,8 +20,9 @@ func move() -> void:
 		var distance: Vector2 = player_ref.global_position - global_position
 		var direction: Vector2 = distance.normalized()
 		var distanceLength: float = distance.length()
-		if distanceLength <= 15:
+		if distanceLength <= 20:
 			velocity = Vector2.ZERO
+			player_ref.kill()
 		else:
 			velocity = speed * direction
 	else: 
@@ -49,4 +51,3 @@ func _on_detection_body_entered(body):
 func _on_detection_body_exited(body):
 	if body.is_in_group("player"):
 		player_ref = null
-

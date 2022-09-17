@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Minigames/Earthquake World/scripts/healthBar.gd" type="Script" id=1]
+[ext_resource path="res://Minigames/Earthquake World/resources/healthBar.tres" type="Texture" id=2]
+
+[node name="healthBar" type="TextureProgress"]
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 36.0
+margin_bottom = 4.0
+rect_scale = Vector2( 0.5, 0.5 )
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+tint_under = Color( 0.454902, 0.454902, 0.454902, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "
+"
+}
+
+[node name="Tween" type="Tween" parent="."]

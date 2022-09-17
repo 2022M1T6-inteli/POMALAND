@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenario.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Minigames/Earthquake World/cenas/mesa.gd" type="Script" id=2]
+[ext_resource path="res://Minigames/Earthquake World/scripts/mesa.gd" type="Script" id=2]
 [ext_resource path="res://Minigames/Earthquake World/cenas/decoration.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Minigames/Earthquake World/cenas/cerca.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/placa.tscn" type="PackedScene" id=5]
@@ -18,9 +18,9 @@
 [ext_resource path="res://Assets/Images/Custom/dbox/dBox3.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Images/Custom/dbox/dBox2.png" type="Texture" id=17]
 [ext_resource path="res://Scenes/Dialogue.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Minigames/Earthquake World/cenas/Cama.gd" type="Script" id=19]
-[ext_resource path="res://Minigames/Earthquake World/cenas/bau.gd" type="Script" id=20]
-[ext_resource path="res://Minigames/Earthquake World/cenas/placa.gd" type="Script" id=22]
+[ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/Cama.gd" type="Script" id=19]
+[ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/bau.gd" type="Script" id=20]
+[ext_resource path="res://Minigames/Earthquake World/scripts/placa.gd" type="Script" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.5, 18 )
@@ -98,52 +98,18 @@ position = Vector2( 37, 145 )
 
 [node name="slime" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 106, 108 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="zumbi" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 536, 180 )
-__meta__ = {
-"_edit_group_": true
-}
 speed = 40
 
 [node name="person-machado" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 381, 50 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Mesa" type="Area2D" parent="."]
-position = Vector2( 229, 146 )
-script = ExtResource( 2 )
-
-[node name="Dialogue 1" parent="Mesa" instance=ExtResource( 18 )]
-visible = false
-
-[node name="Area2D" type="Area2D" parent="Mesa"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesa/Area2D"]
-position = Vector2( 0.5, -0.5 )
-shape = SubResource( 1 )
-
-[node name="mesa" parent="Mesa/Area2D" instance=ExtResource( 8 )]
-
-[node name="dbox" type="AnimatedSprite" parent="Mesa"]
-visible = false
-position = Vector2( 22, -19 )
-scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
-frame = 1
-speed_scale = 0.8
-playing = true
 
 [node name="Cama" type="Area2D" parent="."]
 script = ExtResource( 19 )
 
 [node name="Dialogue 2" parent="Cama" instance=ExtResource( 18 )]
-visible = false
 
 [node name="Area2D" type="Area2D" parent="Cama"]
 
@@ -167,7 +133,6 @@ playing = true
 script = ExtResource( 20 )
 
 [node name="Dialogue 3" parent="bau" instance=ExtResource( 18 )]
-visible = false
 
 [node name="Area2D" type="Area2D" parent="bau"]
 
@@ -191,7 +156,6 @@ playing = true
 script = ExtResource( 22 )
 
 [node name="Dialogue 4" parent="placa" instance=ExtResource( 18 )]
-visible = false
 
 [node name="Area2D" type="Area2D" parent="placa"]
 position = Vector2( 0, 1.90735e-06 )
@@ -212,11 +176,34 @@ frame = 2
 speed_scale = 0.8
 playing = true
 
-[connection signal="body_entered" from="Mesa/Area2D" to="Mesa" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Mesa/Area2D" to="Mesa" method="_on_Area2D_body_exited"]
+[node name="Mesa" type="Area2D" parent="."]
+position = Vector2( 229, 146 )
+script = ExtResource( 2 )
+
+[node name="Dialogue 1" parent="Mesa" instance=ExtResource( 18 )]
+
+[node name="Area2D" type="Area2D" parent="Mesa"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mesa/Area2D"]
+position = Vector2( 0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="mesa" parent="Mesa/Area2D" instance=ExtResource( 8 )]
+
+[node name="dbox" type="AnimatedSprite" parent="Mesa"]
+visible = false
+position = Vector2( 22, -19 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+frame = 1
+speed_scale = 0.8
+playing = true
+
 [connection signal="body_entered" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="bau/Area2D" to="bau" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="bau/Area2D" to="bau" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="placa/Area2D" to="placa" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="placa/Area2D" to="placa" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Mesa/Area2D" to="Mesa" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Mesa/Area2D" to="Mesa" method="_on_Area2D_body_exited"]

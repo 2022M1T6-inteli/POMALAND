@@ -61,6 +61,7 @@ frame = 117
 [node name="detection" type="Area2D" parent="."]
 
 [node name="collision" type="CollisionShape2D" parent="detection"]
+position = Vector2( 0, 2 )
 z_index = 1
 shape = SubResource( 4 )
 
