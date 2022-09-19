@@ -13,7 +13,7 @@ func _physics_process(_delta:float) -> void:
 	move()
 	animate()
 	verifyDirection()
-	
+
 # function of moviment
 func move() -> void:
 	if player_ref != null:
@@ -28,7 +28,7 @@ func move() -> void:
 	else: 
 		velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)
-	
+
 # function of animation
 func animate() -> void:
 	if canDie: 
@@ -38,19 +38,19 @@ func animate() -> void:
 		animation.play("walk")
 	else: 
 		animation.play("idle")
-		
+
 # function verify if the person will going to be left or right		
 func verifyDirection() -> void:
 	if velocity.x >0:
 		sprite.flip_h = false
 	elif velocity.x < 0:
 		sprite.flip_h = true
-	
+
 #functions detect the player or no
 func on_body_entered(body):
 	if body.is_in_group("player"): 
 		player_ref = body
-	
+
 func on_body_exited(body):
 	if body.is_in_group("player"):
 		player_ref = null
@@ -60,6 +60,8 @@ func kill_enemy(area):
 		canDie = true
  
 func _on_animation_finished(anim_name):
-	if anim_name == "dead":
-		# queue_free() 
-		var _Reload: bool = get_tree().reload_current_scene()
+	 if anim_name == "dead":
+		 queue_free() 
+		
+		
+ 

@@ -1,5 +1,6 @@
 extends Area2D
 
+var liberarCama: bool
 var onArea: bool
 var dialoguePart = 0
 var texts = [ 

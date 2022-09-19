@@ -1,5 +1,6 @@
 extends Area2D
 
+var liberarPlaca: bool
 var onArea: bool
 var dialoguePart = 0
 var texts = [ "", 
@@ -19,6 +20,7 @@ func _on_Area2D_body_exited(body):
 	if body == $"../YSort/person-machado":
 		$dbox4.visible = false
 		onArea = false
+	liberarPlaca = true
 
 func ShowDialogue1():
 	if onArea == true:

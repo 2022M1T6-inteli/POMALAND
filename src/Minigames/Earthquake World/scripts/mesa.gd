@@ -1,5 +1,7 @@
 extends Area2D
 
+var liberarMesa:bool
+var mesa = load("res://Minigames/Earthquake World/scripts/placa.gd").new()
 var onArea: bool
 var dialoguePart = 0
 var texts = [ "", 
