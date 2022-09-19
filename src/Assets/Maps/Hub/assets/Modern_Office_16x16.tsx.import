@@ -2,13 +2,11 @@
 
 importer="vnen.tiled_tileset_importer"
 type="TileSet"
-path="res://.import/Modern_Office_16x16.tsx-b01cb0b33119d66642e6da16f7da2ef9.res"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Maps/Hub/assets/Modern_Office_16x16.tsx"
-dest_files=[ "res://.import/Modern_Office_16x16.tsx-b01cb0b33119d66642e6da16f7da2ef9.res" ]
-
 [params]
 
 custom_properties=true

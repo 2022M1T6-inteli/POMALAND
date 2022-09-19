@@ -2,13 +2,11 @@
 
 importer="vnen.tiled_tileset_importer"
 type="TileSet"
-path="res://.import/Bob_16x16.tsx-501d8473f818c8b95708353bbc442d59.res"
+valid=false
 
 [deps]
 
 source_file="res://Assets/Maps/Hub/assets/Bob_16x16.tsx"
-dest_files=[ "res://.import/Bob_16x16.tsx-501d8473f818c8b95708353bbc442d59.res" ]
-
 [params]
 
 custom_properties=true
