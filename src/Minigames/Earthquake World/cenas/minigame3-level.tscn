@@ -111,7 +111,7 @@ position = Vector2( 381, 50 )
 [node name="Cama" type="Area2D" parent="."]
 script = ExtResource( 19 )
 
-[node name="Dialogue 2" parent="Cama" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="Cama" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="Cama"]
 
@@ -127,14 +127,13 @@ visible = false
 position = Vector2( 411, 271 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.8
 playing = true
 
 [node name="bau" type="Area2D" parent="."]
 script = ExtResource( 20 )
 
-[node name="Dialogue 3" parent="bau" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="bau" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="bau"]
 
@@ -150,14 +149,14 @@ visible = false
 position = Vector2( 553, 153 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 speed_scale = 0.8
 playing = true
 
 [node name="placa" type="Area2D" parent="."]
 script = ExtResource( 22 )
 
-[node name="Dialogue 4" parent="placa" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="placa" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="placa"]
 position = Vector2( 0, 1.90735e-06 )
@@ -174,7 +173,6 @@ visible = false
 position = Vector2( 295, 19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.8
 playing = true
 
@@ -197,6 +195,7 @@ visible = false
 position = Vector2( 22, -19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
+frame = 3
 speed_scale = 0.8
 playing = true
 
