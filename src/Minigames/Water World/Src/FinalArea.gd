@@ -5,7 +5,6 @@ var keyStatus: bool
 func _on_FinalArea_body_entered(body):
 	if body == $"../../Platform Plyr":
 		keyStatus = get_node("../../Key").hasKey
-		print(keyStatus)
 		if keyStatus == true:
 			UnlockArea()
 

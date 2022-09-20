@@ -38464,7 +38464,6 @@ scale = Vector2( 1.5, 1.5 )
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
 frames = SubResource( 33 )
-frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
