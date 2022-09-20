@@ -55,4 +55,12 @@ func Movement(delta):
 
 func _physics_process(delta):
 	Movement(delta)
+	Animate()
 
+func Animate():
+	$AnimationTree.set("parameters/Move/blend_position", motionVector)
+	if motionVector.x != 0:
+		$AnimationTree.set("parameters/Idle/blend_position", motionVector)
+		$AnimationTree.get("parameters/playback").travel("Move")
+	else:
+		$AnimationTree.get("parameters/playback").travel("Idle")
