@@ -4,6 +4,7 @@ var chrLookRight = Vector2(1, 0)
 var scene
 
 func _ready():
+	print(Global.waterStar)
 	$"YSort/Physics Player/animationTree".set("parameters/Idle/blend_position", chrLookRight)
 	if Global.portalRoom == "WaterWorld":
 		$"YSort/Physics Player".position = Vector2(179, 78)

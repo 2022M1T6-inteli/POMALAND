@@ -1,5 +1,6 @@
 extends Control
 
+
 # Grab focus to start button
 func _ready():
 	$Main/Center/Vertical/Start.grab_focus()

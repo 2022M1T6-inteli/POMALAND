@@ -48,6 +48,3 @@ func ChangeDialogue(dial):
 
 func _process(_delta):
 	ShowDialogue1()
-
-func _ready():
-	print(Global.language)

@@ -5,6 +5,11 @@ onready var animation: AnimationPlayer = get_node("animation")
 onready var sprite: Sprite = get_node("Sprite")
 var player_ref = null
 var velocity: Vector2
+onready var animationTree: AnimationTree = get_node("animationTree")
+onready var animationStates = animationTree.get("parameters/playback")
+var direction: Vector2
+var canDie: bool = false
+
 export (int) var speed
 # var dead = load("res:://Minigames/Eartquake World/scripts/person-machado.gd").new()
 
@@ -18,23 +23,24 @@ func _physics_process(_delta:float) -> void:
 func move() -> void:
 	if player_ref != null:
 		var distance: Vector2 = player_ref.global_position - global_position
-		var direction: Vector2 = distance.normalized()
+		direction = distance.normalized()
 		var distanceLength: float = distance.length()
 		if distanceLength <= 20:
 			velocity = Vector2.ZERO
+			animationTree.set("parameters/Atack/blend_position", direction)
+			set_physics_process(true)
 			player_ref.kill()
 		else:
 			velocity = speed * direction
 	else: 
 		velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)
-	
 # function of animation
 func animate() -> void:
 	if velocity != Vector2.ZERO: 
-		animation.play("walk")
-	else: 
-		animation.play("idle")
+		animationTree.set("parameters/Idle/blend_position", direction)
+		animationTree.set("parameters/Walk/blend_position", direction)
+		animationStates.travel("walk")
 		
 # function verify if the person will going to be left or right		
 func verifyDirection() -> void:
@@ -51,3 +57,11 @@ func _on_detection_body_entered(body):
 func _on_detection_body_exited(body):
 	if body.is_in_group("player"):
 		player_ref = null
+		
+func _on_detection_area_entered(area):
+	if area.is_in_group("playerAttack"):
+		canDie = true
+
+func _on_animation_animation_finished(anim_name):
+	if anim_name == "dead-back":
+		 queue_free() 
