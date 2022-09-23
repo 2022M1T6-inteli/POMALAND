@@ -8,15 +8,18 @@ var dialogues = load("res://Src/HubDialogues.gd").new()
 func _on_Area2D_body_entered(body):
 	if body == $"../Physics Player":
 		$dbox.visible = true
+		$"../Hints".visible = true
+		ShowHint()
 		onArea = true
 
 # Make dbox invisible when player is far
 func _on_Area2D_body_exited(body):
 	if body == $"../Physics Player":
 		$dbox.visible = false
+		$"../Hints".visible = false
 		onArea = false
 
-
+# All dialogue
 func ShowDialogue1():
 	if onArea == true:
 		if Input.is_action_just_pressed("select"):
@@ -32,11 +35,13 @@ func ShowDialogue1():
 		$"Dialogue 1".visible = false
 		dialoguePart = 0
 
+# Make dialogue arrow invisible when on the last page
 func ArrowInvisible(dial):
 	$"Dialogue 1/AnimatedSprite".visible = true
 	if dialoguePart >= len(dial) - 1:
 		$"Dialogue 1/AnimatedSprite".visible = false
 
+# Change dialogue pages
 func ChangeDialogue(dial):
 	if dialoguePart == len(dial) - 1:
 		dialoguePart = 0
@@ -46,5 +51,14 @@ func ChangeDialogue(dial):
 		dialoguePart += 1
 		$"Dialogue 1/Label".text = str(dial[dialoguePart])
 
+# Show what key needs to be pressed to interact
+func ShowHint():
+	match Global.language:
+		"English":
+			$"../Hints/CenterContainer/Label".text = "(Z)\nto interact"
+		"Portuguese":
+			$"../Hints/CenterContainer/Label".text = "(Z)\npara interagir"
+
+# Functions that run on delta
 func _process(_delta):
 	ShowDialogue1()

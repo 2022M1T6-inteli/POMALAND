@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Minigames/Earthquake World/scripts/mesa.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/bau.gd" type="Script" id=20]
 [ext_resource path="res://Minigames/Earthquake World/scripts/minigame3-level.gd" type="Script" id=21]
 [ext_resource path="res://Minigames/Earthquake World/scripts/placa.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.625, 18 )
@@ -129,7 +130,6 @@ visible = false
 position = Vector2( 411, 271 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -152,6 +152,7 @@ visible = false
 position = Vector2( 553, 153 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 0.8
 playing = true
 
@@ -175,7 +176,6 @@ visible = false
 position = Vector2( 295, 19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -198,9 +198,11 @@ visible = false
 position = Vector2( 22, -19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
-frame = 2
+frame = 3
 speed_scale = 0.8
 playing = true
+
+[node name="Pause Canvas" parent="." instance=ExtResource( 23 )]
 
 [connection signal="body_entered" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_exited"]

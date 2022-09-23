@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=2]
+[gd_scene load_steps=163 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Assets/Images/Custom/dbox/dBox1.png" type="Texture" id=15]
 [ext_resource path="res://Src/WaterElevator.gd" type="Script" id=16]
 [ext_resource path="res://Sounds/Hub.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Src/HintMove.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Fonts/PressStart2P.ttf" type="DynamicFontData" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=142]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -41036,6 +41038,13 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=176]
+extents = Vector2( 30.5, 43 )
+
+[sub_resource type="DynamicFont" id=177]
+size = 12
+font_data = ExtResource( 19 )
+
 [node name="Hub" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -41191,13 +41200,45 @@ frame = 1
 speed_scale = 0.8
 playing = true
 
-[node name="Pause Canvas" parent="." instance=ExtResource( 5 )]
-
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
+
+[node name="HintMove" type="Area2D" parent="."]
+script = ExtResource( 18 )
+
+[node name="area" type="CollisionShape2D" parent="HintMove"]
+position = Vector2( 94.5, 138 )
+shape = SubResource( 176 )
+
+[node name="Hints" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Hints"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -240.0
+margin_right = 240.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 240, 20 )
+
+[node name="Label" type="Label" parent="Hints/CenterContainer"]
+margin_left = 204.0
+margin_top = 14.0
+margin_right = 276.0
+margin_bottom = 26.0
+rect_pivot_offset = Vector2( 36, 6 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 177 )
+text = "Hint: "
+align = 1
+valign = 1
+
+[node name="Pause Canvas" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="ElevatorArea 2" to="ElevatorArea 2" method="_on_ElevatorArea_2_body_entered"]
 [connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]
 [connection signal="body_entered" from="Meneguzzi/Area2D" to="Meneguzzi" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Meneguzzi/Area2D" to="Meneguzzi" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="HintMove" to="HintMove" method="_on_HintMove_body_entered"]
+[connection signal="body_exited" from="HintMove" to="HintMove" method="_on_HintMove_body_exited"]
