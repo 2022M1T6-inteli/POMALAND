@@ -66,3 +66,7 @@ func _physics_process(_delta):
 	FollowPlayer()
 	LightOnPlayer()
 
+# REMOVE THIS LATER
+func _on_Provisory_body_entered(body):
+	if body == plyr:
+		plyr.position = Vector2(434, -699)

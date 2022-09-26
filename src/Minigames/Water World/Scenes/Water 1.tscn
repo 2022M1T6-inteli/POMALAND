@@ -24,7 +24,6 @@
 [ext_resource path="res://Minigames/Water World/Src/FinalArea.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Images/Custom/water.png" type="Texture" id=23]
 [ext_resource path="res://Sounds/Lullaby - JVNA - Water Elevator.mp3" type="AudioStream" id=24]
-[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 7.81479, 0, 16, 0, 16, 16, 7.81479, 16 )
@@ -73754,6 +73753,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=34]
 extents = Vector2( 9.66667, 16.3333 )
 
+[sub_resource type="RectangleShape2D" id=35]
+
 [node name="Water 1" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -74014,7 +74015,11 @@ shape = SubResource( 34 )
 stream = ExtResource( 24 )
 autoplay = true
 
-[node name="Pause Canvas" parent="." instance=ExtResource( 25 )]
+[node name="Provisory" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Provisory"]
+position = Vector2( 460, 241 )
+shape = SubResource( 35 )
 
 [connection signal="body_entered" from="False Walls/FinalArea" to="False Walls/FinalArea" method="_on_FinalArea_body_entered"]
 [connection signal="body_entered" from="Sign 1/Area2D" to="Sign 1" method="_on_Area2D_body_entered"]
@@ -74027,3 +74032,4 @@ autoplay = true
 [connection signal="body_exited" from="Secret Area" to="." method="_on_Secret_Area_body_exited"]
 [connection signal="body_entered" from="Key" to="Key" method="_on_Key_body_entered"]
 [connection signal="body_entered" from="Portal/PortalInteract" to="." method="_on_PortalInteract_body_entered"]
+[connection signal="body_entered" from="Provisory" to="." method="_on_Provisory_body_entered"]
