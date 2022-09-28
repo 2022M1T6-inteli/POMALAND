@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Minigames/Water World/Assets/Images/Assets.png" type="Texture" id=1]
 [ext_resource path="res://Minigames/Water World/Assets/Images/waterfalls.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Minigames/Water World/Src/FinalArea.gd" type="Script" id=22]
 [ext_resource path="res://Assets/Images/Custom/water.png" type="Texture" id=23]
 [ext_resource path="res://Sounds/Lullaby - JVNA - Water Elevator.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 7.81479, 0, 16, 0, 16, 16, 7.81479, 16 )
@@ -74020,6 +74021,8 @@ autoplay = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Provisory"]
 position = Vector2( 460, 241 )
 shape = SubResource( 35 )
+
+[node name="Pause Canvas" parent="." instance=ExtResource( 25 )]
 
 [connection signal="body_entered" from="False Walls/FinalArea" to="False Walls/FinalArea" method="_on_FinalArea_body_entered"]
 [connection signal="body_entered" from="Sign 1/Area2D" to="Sign 1" method="_on_Area2D_body_entered"]

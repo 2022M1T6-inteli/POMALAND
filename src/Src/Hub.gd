@@ -8,3 +8,4 @@ func _ready():
 		$"Physics Player".position = Vector2(446.450836, 123.73774)
 	elif Global.portalRoom == "WaterWorld":
 		$"Physics Player".position = Vector2(177, 65)
+		
