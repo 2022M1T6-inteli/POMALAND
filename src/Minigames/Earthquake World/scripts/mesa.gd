@@ -11,8 +11,11 @@ var texts = [ "",
 	"This shows how important it is to have a healthy relationship with the Stakeholder :) ",
 	" Maturity level 2: Understands the impact of a Stakeholder on a team"
 ]
+var finished3: bool
 
-
+func _ready():
+	finished3 = false
+	
 func _on_Area2D_body_entered(body):
 	if body == $"../YSort/person-machado":
 		$dbox.visible = true
@@ -30,6 +33,7 @@ func ShowDialogue1():
 			if dialoguePart == len(texts) - 2:
 				$"Dialogue 1/AnimatedSprite".visible = false
 			if dialoguePart == len(texts) - 1:
+				finished3 = true
 				dialoguePart = 0
 				$"Dialogue 1/AnimatedSprite".visible = true
 				$"Dialogue 1".visible = false

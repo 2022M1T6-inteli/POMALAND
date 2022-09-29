@@ -9,7 +9,10 @@ var texts = [ "",
 	"(CLEITON): Here used to be the home of the main product model leaders… now it is totally destroyed and with marks on the ground.",
 	"Maturity Level 1: Now, you know  what´s a Stakeholder(leader)"
 	]
+var finished4: bool 
 
+func _ready():
+	finished4 = false
 
 func _on_Area2D_body_entered(body):
 	if body == $"../YSort/person-machado":
@@ -29,6 +32,7 @@ func ShowDialogue1():
 			if dialoguePart == len(texts) - 2:
 				$"Dialogue 4/AnimatedSprite".visible = false
 			if dialoguePart == len(texts) - 1:
+				finished4 = true
 				dialoguePart = 0
 				$"Dialogue 4/AnimatedSprite".visible = true
 				$"Dialogue 4".visible = false

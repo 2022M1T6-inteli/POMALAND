@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Minigames/Earthquake World/scripts/mesa.gd" type="Script" id=2]
@@ -23,11 +23,31 @@
 [ext_resource path="res://Minigames/Earthquake World/scripts/minigame3-level.gd" type="Script" id=21]
 [ext_resource path="res://Minigames/Earthquake World/scripts/placa.gd" type="Script" id=22]
 [ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Images/Custom/earth.png" type="Texture" id=24]
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 24 )
+region = Rect2( 0, 0, 16, 31 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 24 )
+region = Rect2( 16, 0, 16, 31 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 12 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.625, 18 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ) ],
 "loop": true,
@@ -108,6 +128,29 @@ position = Vector2( 106, 108 )
 position = Vector2( 536, 180 )
 speed = 40
 
+[node name="Portal 1" type="StaticBody2D" parent="YSort"]
+position = Vector2( -26, -5 )
+scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
+position = Vector2( 0, 8 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+offset = Vector2( 0, -8 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="YSort/Portal 1"]
+polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
+
+[node name="interact" type="Area2D" parent="YSort/Portal 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Portal 1/interact"]
+position = Vector2( 0, 12 )
+shape = SubResource( 5 )
+
 [node name="person-machado" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 381, 50 )
 
@@ -129,7 +172,8 @@ position = Vector2( 388, 292 )
 visible = false
 position = Vector2( 411, 271 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
+frame = 2
 speed_scale = 0.8
 playing = true
 
@@ -151,8 +195,8 @@ position = Vector2( 543, 166 )
 visible = false
 position = Vector2( 553, 153 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
-frame = 1
+frames = SubResource( 6 )
+frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -175,7 +219,8 @@ position = Vector2( 281, 33 )
 visible = false
 position = Vector2( 295, 19 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 6 )
+frame = 2
 speed_scale = 0.8
 playing = true
 
@@ -197,13 +242,14 @@ shape = SubResource( 1 )
 visible = false
 position = Vector2( 22, -19 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
-frame = 3
+frames = SubResource( 6 )
+frame = 1
 speed_scale = 0.8
 playing = true
 
 [node name="Pause Canvas" parent="." instance=ExtResource( 23 )]
 
+[connection signal="body_entered" from="YSort/Portal 1/interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Cama/Area2D" to="Cama" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="bau/Area2D" to="bau" method="_on_Area2D_body_entered"]

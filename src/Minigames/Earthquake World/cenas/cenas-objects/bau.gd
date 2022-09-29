@@ -12,7 +12,10 @@ var texts = [
 	"To prevent a future crisis of this magnitude, I kept the equipment that helped me in those turbulent times… I hope I don’t have to use it again.",
 	"Maturity level 4: Can replicate the knowledge of a stakeholder in another situation"
 	]
+var finished1: bool
 
+func _ready():
+	finished1 = false
 
 func _on_Area2D_body_entered(body):
 	if body == $"../YSort/person-machado":
@@ -31,6 +34,7 @@ func ShowDialogue1():
 			if dialoguePart == len(texts) - 2:
 				$"Dialogue 3/AnimatedSprite".visible = false
 			if dialoguePart == len(texts) - 1:
+				finished1 = true
 				dialoguePart = 0
 				$"Dialogue 3/AnimatedSprite".visible = true
 				$"Dialogue 3".visible = false

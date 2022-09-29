@@ -10,7 +10,10 @@ var texts = [
 	"Thanks to Pablo's teachings, we were able to put aside the project mentality and start thinking about products! we got a much more agile team.",
 	"Maturity level 3: Can use a stakeholder's teachings to improve the development process"
 	]
+var finished2: bool
 
+func _ready():
+	finished2 = false
 
 func _on_Area2D_body_entered(body):
 	if body == $"../YSort/person-machado":
@@ -29,6 +32,7 @@ func ShowDialogue1():
 			if dialoguePart == len(texts) - 2:
 				$"Dialogue 2/AnimatedSprite".visible = false
 			if dialoguePart == len(texts) - 1:
+				finished2 = true
 				dialoguePart = 0
 				$"Dialogue 2/AnimatedSprite".visible = true
 				$"Dialogue 2".visible = false
