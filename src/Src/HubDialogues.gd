@@ -5,6 +5,10 @@ var meneguzziTalk = {
 	"portuguese": textportMeneguzzi
 }
 
+const textenMoveHint = "Hint: Use\n↑ ← ↓ →\nto move around"
+
+const textportMoveHint = "Dica: Use\n↑ ← ↓ →\npara se mover"
+
 const textenMeneguzzi = [
 	"null",
 	"(Meneguzzi): Aahh, quick! here!. I don't have much time….",
