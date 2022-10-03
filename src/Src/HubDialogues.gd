@@ -9,6 +9,10 @@ const textenMoveHint = "Hint: Use\n↑ ← ↓ →\nto move around"
 
 const textportMoveHint = "Dica: Use\n↑ ← ↓ →\npara se mover"
 
+const textenInteractHint = "Hint Use\n(Z)\nto interact"
+
+const textportInteractHint = "Dica: Use\n(Z)\npara interagir"
+
 const textenMeneguzzi = [
 	"null",
 	"(Meneguzzi): Aahh, quick! here!. I don't have much time….",

@@ -2,10 +2,11 @@ extends Node2D
 
 onready var plyr = get_node("Platform Plyr")
 onready var cam = $Camera2D
-
+var dialogues = load("res://Minigames/Water World/Src/WaterDialogues.gd").new()
+onready var signn = get_node("Sign 1")
+var sign1area = false
 var camSecret = Vector2(0, 134)
 var camOriginal = Vector2(241, 134)
-var scene
 
 func _ready():
 	ResetStars()
@@ -41,7 +42,7 @@ func _on_PortalInteract_body_entered(body):
 		Global.portalRoom = "WaterWorld"
 		Global.completeWater = true
 		Metric()
-		scene = get_tree().change_scene("res://Scenes/Portal Room B.tscn")
+		TransitionScreen.fadeIn("res://Scenes/Portal Room B.tscn")
 
 # Measure the signs read
 func Metric():
@@ -66,7 +67,25 @@ func _physics_process(_delta):
 	FollowPlayer()
 	LightOnPlayer()
 
-# REMOVE THIS LATER
-func _on_Provisory_body_entered(body):
-	if body == plyr:
-		plyr.position = Vector2(434, -699)
+
+# Show jump hint when on area
+func _on_HintArea_body_entered(body):
+	if body == $"Platform Plyr":
+		sign1area = true
+		match Global.language:
+			"English":
+				$HintCanvas/Label.text = dialogues.textenHint
+			"Portuguese":
+				$HintCanvas/Label.text = dialogues.textportHint
+
+# Hide jump hint when on area
+func _on_HintArea_body_exited(body):
+	if body == $"Platform Plyr":
+		sign1area = false
+		$HintCanvas.visible = false
+
+func _process(_delta):
+	if signn.dialogueActive == true:
+		$HintCanvas.visible = false
+	elif sign1area == true:
+		$HintCanvas.visible = true

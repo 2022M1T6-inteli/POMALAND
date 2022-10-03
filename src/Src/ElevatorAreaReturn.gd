@@ -6,10 +6,10 @@ var scene
 
 func _on_interact_body_entered(body):
 	if body == $"../YSort/Physics Player":
-		scene = TransitionScreen.fadeIn("res://Minigames/Earthquake World/cenas/minigame3-level.tscn")
+		TransitionScreen.fadeIn("res://Minigames/Earthquake World/cenas/minigame3-level.tscn")
 		
 
 
 func _on_ElevatorArea_body_entered(body):
 	if body == $"../YSort/Physics Player":
-		scene = TransitionScreen.fadeIn("res://Scenes/Hub.tscn")
+		TransitionScreen.fadeIn("res://Scenes/Hub.tscn")

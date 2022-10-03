@@ -3,6 +3,7 @@ extends TextureRect
 var onArea: bool
 var dialoguePart = 0
 var dialogues = load("res://Minigames/Water World/Src/WaterDialogues.gd").new()
+var dialogueActive: bool
 var finishDialogue: bool
 
 onready var holeS = get_node("/root/Water 1/HoleS")
@@ -15,12 +16,14 @@ func _ready():
 # Make dbox visible when player is close
 func _on_Area2D_body_entered(body):
 	if body == $"../Platform Plyr":
+		dialogueActive = true
 		$dbox.visible = true
 		onArea = true
 
 # Make dbox invisible when player is far
 func _on_Area2D_body_exited(body):
 	if body == $"../Platform Plyr":
+		dialogueActive = false
 		$dbox.visible = false
 		onArea = false
 		

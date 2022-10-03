@@ -14,7 +14,7 @@ func _ready():
 		$"Physics Player".position = Vector2(177, 65)
 		
 
-# Show hint when on area
+# Show move hint when on area
 func _on_Directions_body_entered(body):
 	if body == $"Physics Player":
 		match Global.language:
@@ -24,7 +24,22 @@ func _on_Directions_body_entered(body):
 				$HintCanvas/Label.text = dialogues.textportMoveHint
 		$HintCanvas.visible = true
 
-# Hide hint when on area
+# Hide move hint when on area
 func _on_Directions_body_exited(body):
+	if body == $"Physics Player":
+		$HintCanvas.visible = false
+
+# Show interact hint when on area
+func _on_Area2D_body_entered(body):
+	if body == $"Physics Player":
+		match Global.language:
+			"English":
+				$HintCanvas/Label.text = dialogues.textenInteractHint
+			"Portuguese":
+				$HintCanvas/Label.text = dialogues.textportInteractHint
+		$HintCanvas.visible = true
+
+# Hide interact hint when on area
+func _on_Area2D_body_exited(body):
 	if body == $"Physics Player":
 		$HintCanvas.visible = false
