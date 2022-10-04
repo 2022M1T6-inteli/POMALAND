@@ -1,16 +1,10 @@
 extends Area2D
 
 var liberarMesa:bool
-var mesa = load("res://Minigames/Earthquake World/scripts/placa.gd").new()
+var dialogues = load("res://Minigames/Earthquake World/scripts/EarthquakeDialogues.gd").new()
 var onArea: bool
 var dialoguePart = 0
-var texts = [ "", 
-	"(CLEITON): Transcript of an old email:",
-	"Congratulations, Pablo!!!!!!!!",
-	"Thank you for your guidance to our team, we were able to double the amount of revenue for our company!",
-	"This shows how important it is to have a healthy relationship with the Stakeholder :) ",
-	" Maturity level 2: Understands the impact of a Stakeholder on a team"
-]
+
 var finished3: bool
 
 func _ready():
@@ -30,18 +24,31 @@ func ShowDialogue1():
 	if onArea == true:
 		if Input.is_action_just_pressed("select"):
 			$"Dialogue 1".visible = true
-			if dialoguePart == len(texts) - 2:
-				$"Dialogue 1/AnimatedSprite".visible = false
-			if dialoguePart == len(texts) - 1:
-				finished3 = true
-				dialoguePart = 0
-				$"Dialogue 1/AnimatedSprite".visible = true
-				$"Dialogue 1".visible = false
-			else:
-				dialoguePart += 1
-				$"Dialogue 1/Label".text = str(texts[dialoguePart])
+			match Global.language:
+				"English":
+					ChangeDialogue(dialogues.mesaDialogue["english"])
+					ArrowInvisible(dialogues.mesaDialogue["english"])
+				"Portuguese":
+					ArrowInvisible(dialogues.mesaDialogue["portuguese"])
+					ChangeDialogue(dialogues.mesaDialogue["portuguese"])
 	else:
 		$"Dialogue 1".visible = false
 		dialoguePart = 0
+
+
+func ArrowInvisible(dial):
+	$"Dialogue 1/AnimatedSprite".visible = true
+	if dialoguePart >= len(dial) - 1:
+		$"Dialogue 1/AnimatedSprite".visible = false
+
+func ChangeDialogue(dial):
+	if dialoguePart == len(dial) - 1:
+		dialoguePart = 0
+		$"Dialogue 1/AnimatedSprite".visible = true
+		$"Dialogue 1".visible = false
+	else:
+		dialoguePart += 1
+		$"Dialogue 1/Label".text = str(dial[dialoguePart])
+		
 func _process(_delta):
 	ShowDialogue1()

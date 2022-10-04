@@ -7,5 +7,3 @@ var completeWater = false
 var waterStar: int
 var earthStar: int
 
-func DisableMouse():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

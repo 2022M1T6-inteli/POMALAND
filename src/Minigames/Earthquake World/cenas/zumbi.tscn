@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/scripts/zumbi.gd" type="Script" id=1]
 [ext_resource path="res://Minigames/Earthquake World/characters/Zumbi-Sprite.png" type="Texture" id=2]
@@ -87,7 +87,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=9]
 resource_name = "dead-back"
 length = 0.7
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -95,10 +94,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ 261, 262, 263, 264, 265 ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -283,27 +282,27 @@ blend_point_3/pos = Vector2( 1, 0 )
 triangles = PoolIntArray( 0, 1, 3, 0, 2, 3 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "atack-left"
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "dead-back"
 
-[sub_resource type="AnimationNodeAnimation" id=32]
-animation = "atack-right"
+[sub_resource type="AnimationNodeAnimation" id=41]
+animation = "dead-back"
 
-[sub_resource type="AnimationNodeAnimation" id=33]
-animation = "atack-front"
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "dead-back"
 
-[sub_resource type="AnimationNodeAnimation" id=34]
-animation = "atack-back"
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "dead-back"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=35]
-blend_point_0/node = SubResource( 31 )
-blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 32 )
-blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 33 )
-blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 34 )
-blend_point_3/pos = Vector2( 0, 0.9 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=44]
+blend_point_0/node = SubResource( 40 )
+blend_point_0/pos = Vector2( -1, 0.1 )
+blend_point_1/node = SubResource( 41 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 42 )
+blend_point_2/pos = Vector2( 1, 0.1 )
+blend_point_3/node = SubResource( 43 )
+blend_point_3/pos = Vector2( 0, -0.9 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=23]
@@ -331,23 +330,26 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
 
 [sub_resource type="AnimationNodeStateMachine" id=29]
 states/Idle/node = SubResource( 22 )
 states/Idle/position = Vector2( 552, 134 )
-states/atack/node = SubResource( 35 )
-states/atack/position = Vector2( 383, 134 )
+states/dead/node = SubResource( 44 )
+states/dead/position = Vector2( 370, 134 )
 states/walk/node = SubResource( 27 )
 states/walk/position = Vector2( 742, 134 )
-transitions = [ "Idle", "walk", SubResource( 28 ), "Idle", "atack", SubResource( 36 ), "walk", "Idle", SubResource( 37 ), "atack", "Idle", SubResource( 38 ) ]
+transitions = [ "Idle", "walk", SubResource( 28 ), "walk", "Idle", SubResource( 37 ), "Idle", "dead", SubResource( 45 ), "dead", "Idle", SubResource( 46 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=30]
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 9, 12 )
 
 [node name="zumbi" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -392,10 +394,17 @@ anim_player = NodePath("../animation")
 active = true
 parameters/playback = SubResource( 30 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
-parameters/atack/blend_position = Vector2( -0.250399, 0.37931 )
+parameters/dead/blend_position = Vector2( 0, 0 )
 parameters/walk/blend_position = Vector2( 0, 0 )
 
-[connection signal="animation_finished" from="animation" to="." method="_on_animation_animation_finished"]
+[node name="collisionArea" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="collisionArea"]
+position = Vector2( 0, 3 )
+shape = SubResource( 39 )
+
+[connection signal="animation_finished" from="animation" to="." method="_on_kill_animation_finished"]
 [connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered"]
 [connection signal="body_entered" from="detection" to="." method="_on_detection_body_entered"]
 [connection signal="body_exited" from="detection" to="." method="_on_detection_body_exited"]
+[connection signal="area_entered" from="collisionArea" to="." method="_on_collisionArea_area_entered"]

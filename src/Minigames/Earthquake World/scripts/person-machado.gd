@@ -54,7 +54,10 @@ func kill() -> void:
 	
 func on_animation_finished(anim_name):
 	if anim_name == "dead": 
-		var _Reload: bool = get_tree().reload_current_scene()
+		gameOver()
 	if anim_name == "atack":
 		canAttack = false
 		set_physics_process(true)
+		
+func gameOver() -> void:
+	var _Reload: bool = get_tree().change_scene("res://Scenes/gameOver.tscn")

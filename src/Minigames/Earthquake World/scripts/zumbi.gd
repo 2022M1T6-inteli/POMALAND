@@ -27,7 +27,7 @@ func move() -> void:
 		var distanceLength: float = distance.length()
 		if distanceLength <= 20:
 			velocity = Vector2.ZERO
-			animationTree.set("parameters/Atack/blend_position", direction)
+			animation.play("atack-back")
 			set_physics_process(true)
 			player_ref.kill()
 		else:
@@ -35,8 +35,13 @@ func move() -> void:
 	else: 
 		velocity = Vector2.ZERO
 	velocity = move_and_slide(velocity)
+	
 # function of animation
 func animate() -> void:
+	if canDie:
+		animation.play("dead-back")
+		set_physics_process(false)
+		
 	if velocity != Vector2.ZERO: 
 		animationTree.set("parameters/Idle/blend_position", direction)
 		animationTree.set("parameters/Walk/blend_position", direction)
@@ -57,11 +62,14 @@ func _on_detection_body_entered(body):
 func _on_detection_body_exited(body):
 	if body.is_in_group("player"):
 		player_ref = null
-		
-func _on_detection_area_entered(area):
+
+
+# function kill
+func _on_collisionArea_area_entered(area):
 	if area.is_in_group("playerAttack"):
 		canDie = true
-
-func _on_animation_animation_finished(anim_name):
+		
+func _on_kill_animation_finished(anim_name):
 	if anim_name == "dead-back":
-		 queue_free() 
+		animationTree.set("parameters/Dead/blend_position", direction)
+		queue_free() 

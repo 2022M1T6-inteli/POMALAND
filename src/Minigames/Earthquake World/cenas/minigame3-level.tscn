@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenario.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Minigames/Earthquake World/scripts/mesa.gd" type="Script" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/pedra.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Minigames/Earthquake World/cenas/cenas-objects/cama.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Minigames/Earthquake World/cenas/slime.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Minigames/Earthquake World/cenas/zumbi.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Minigames/Earthquake World/cenas/person-machado.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Images/Custom/dbox/dBox0.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Images/Custom/dbox/dBox1.png" type="Texture" id=15]
@@ -124,9 +123,14 @@ position = Vector2( 37, 145 )
 [node name="slime" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 106, 108 )
 
-[node name="zumbi" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 536, 180 )
-speed = 40
+[node name="slime2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 127, 302 )
+
+[node name="slime3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 456, 353 )
+
+[node name="slime4" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 301, 264 )
 
 [node name="Portal 1" type="StaticBody2D" parent="YSort"]
 position = Vector2( -26, -5 )
@@ -157,7 +161,7 @@ position = Vector2( 381, 50 )
 [node name="Cama" type="Area2D" parent="."]
 script = ExtResource( 19 )
 
-[node name="Dialogue 2" parent="Cama" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="Cama" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="Cama"]
 
@@ -180,7 +184,7 @@ playing = true
 [node name="bau" type="Area2D" parent="."]
 script = ExtResource( 20 )
 
-[node name="Dialogue 3" parent="bau" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="bau" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="bau"]
 
@@ -203,7 +207,7 @@ playing = true
 [node name="placa" type="Area2D" parent="."]
 script = ExtResource( 22 )
 
-[node name="Dialogue 4" parent="placa" instance=ExtResource( 18 )]
+[node name="Dialogue 1" parent="placa" instance=ExtResource( 18 )]
 
 [node name="Area2D" type="Area2D" parent="placa"]
 position = Vector2( 0, 1.90735e-06 )

@@ -3,8 +3,6 @@ extends Control
 var scene
 
 #Finish -> Scene Change
-func _ready():
-	Global.DisableMouse()
 
 func _on_VideoPlayer_finished():
 	scene = get_tree().change_scene("res://Scenes/Menu.tscn")
