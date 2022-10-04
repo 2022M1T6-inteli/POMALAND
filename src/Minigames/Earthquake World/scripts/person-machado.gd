@@ -10,13 +10,17 @@ var canAttack: bool = false
 
 onready var animation: AnimationPlayer = get_node("Animation")
 onready var sprite: Sprite = get_node("Sprite")
-onready var collision: CollisionShape2D = get_node("Area2D/collision")
+onready var collision: CollisionPolygon2D = get_node("Area2D/collision")
+
+func _ready():
+	 collision.disabled = true
 
 func _physics_process(_delta:float) -> void:
 	move()
 	attack()
 	animate()
 	verifyDirection()
+	AttackArea()
 	
 func attack() -> void:
 	if Input.is_action_just_pressed("ui_select") and not canAttack:
@@ -41,12 +45,13 @@ func animate() -> void:
 		animation.play("idle")
 
 func verifyDirection() -> void:
-	if velocity.x >= 0: 
+	if velocity.x > 0: 
 		sprite.flip_h = false
-		collision.position = Vector2(21,8)
+		collision.position = Vector2(0,13)
 	elif velocity.x < 0: 
 		sprite.flip_h = true
-		collision.position = Vector2(-21,8)
+		collision.position = Vector2(-20,13)
+	
 		
 
 func kill() -> void: 
@@ -58,6 +63,12 @@ func on_animation_finished(anim_name):
 	if anim_name == "atack":
 		canAttack = false
 		set_physics_process(true)
-		
+
+func AttackArea() -> void:
+	if canAttack == true:
+		collision.disabled = false
+	else:
+		collision.disabled = true
+	
 func gameOver() -> void:
 	var _Reload: bool = get_tree().change_scene("res://Scenes/gameOver.tscn")

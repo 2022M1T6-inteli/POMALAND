@@ -41,7 +41,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 8, 12 )
+extents = Vector2( 8, 7.33333 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.625, 18 )
@@ -102,9 +102,6 @@ position = Vector2( -150, 394 )
 [node name="arvore9" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 701, 393 )
 
-[node name="bau2" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 74, 287 )
-
 [node name="pedra" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 442, 315 )
 
@@ -133,7 +130,7 @@ position = Vector2( 456, 353 )
 position = Vector2( 301, 264 )
 
 [node name="Portal 1" type="StaticBody2D" parent="YSort"]
-position = Vector2( -26, -5 )
+position = Vector2( -26, -3 )
 scale = Vector2( 1.5, 1.5 )
 __meta__ = {
 "_edit_group_": true
@@ -152,7 +149,7 @@ polygon = PoolVector2Array( 0, 16, -8, 8, -8, 8, 8, 8, 8, 8 )
 [node name="interact" type="Area2D" parent="YSort/Portal 1"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Portal 1/interact"]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 10.6667 )
 shape = SubResource( 5 )
 
 [node name="person-machado" parent="YSort" instance=ExtResource( 13 )]
