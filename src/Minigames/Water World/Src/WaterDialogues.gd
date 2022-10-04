@@ -3,6 +3,9 @@ extends Node
 const textenHint = "Hint: Use\n(Spacebar) to jump\nwhile holding\nthe direction you\nwant to jump to"
 const textportHint = "Dica: Use\n(Espaço) para pular\nenquanto você mantêm\na direção de pulo\npressionada"
 
+const textenHint2 = "Read the sign!"
+const textportHint2 = "Leia a placa!"
+
 var sign1Talk = {
 	"english": textenSign1,
 	"portuguese": textportSign1

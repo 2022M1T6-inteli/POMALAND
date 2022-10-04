@@ -9,10 +9,10 @@ var camSecret = Vector2(0, 134)
 var camOriginal = Vector2(241, 134)
 
 func _ready():
+	Global.level = "Water"
 	ResetStars()
 	$HoleS.visible = true
 	$CanvasLayer/KeyGui.visible = false
-
 # Make camera follow player y
 func FollowPlayer():
 	if plyr.position.y <= 140:
@@ -75,8 +75,10 @@ func _on_HintArea_body_entered(body):
 		match Global.language:
 			"English":
 				$HintCanvas/Label.text = dialogues.textenHint
+				$HintCanvas/Label2.text = dialogues.textenHint2
 			"Portuguese":
 				$HintCanvas/Label.text = dialogues.textportHint
+				$HintCanvas/Label2.text = dialogues.textportHint2
 
 # Hide jump hint when on area
 func _on_HintArea_body_exited(body):
@@ -85,7 +87,15 @@ func _on_HintArea_body_exited(body):
 		$HintCanvas.visible = false
 
 func _process(_delta):
+	var sign1 = get_node("Sign 1").finishDialogue
 	if signn.dialogueActive == true:
 		$HintCanvas.visible = false
 	elif sign1area == true:
 		$HintCanvas.visible = true
+	if sign1 == true:
+		$HintCanvas/Label2.visible = false
+
+func _on_gameOverArea_body_entered(body):
+	if body == plyr: 
+		var _scene = get_tree().change_scene("res://Scenes/gameOver.tscn")
+

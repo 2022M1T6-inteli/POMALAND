@@ -4,6 +4,7 @@ extends KinematicBody2D
 var motionVector: Vector2
 var speed = 200
 const NORMAL = Vector2(0, -1)
+var play_ref
 
 # Jump Vars
 var jumpRawForce = 0.0
@@ -64,3 +65,4 @@ func Animate():
 		$AnimationTree.get("parameters/playback").travel("Move")
 	else:
 		$AnimationTree.get("parameters/playback").travel("Idle")
+

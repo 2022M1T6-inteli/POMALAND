@@ -4,10 +4,10 @@ var liberarPlaca: bool
 var onArea: bool
 var dialoguePart = 0
 var dialogues = load("res://Minigames/Earthquake World/scripts/EarthquakeDialogues.gd").new()
-var finished4: bool 
+var finished: bool 
 
 func _ready():
-	finished4 = false
+	finished = false
 
 func _on_Area2D_body_entered(body):
 	if body == $"../YSort/person-machado":
@@ -43,6 +43,7 @@ func ArrowInvisible(dial):
 
 func ChangeDialogue(dial):
 	if dialoguePart == len(dial) - 1:
+		finished = true
 		dialoguePart = 0
 		$"Dialogue 1/AnimatedSprite".visible = true
 		$"Dialogue 1".visible = false
