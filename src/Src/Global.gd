@@ -1,5 +1,6 @@
 extends Node
 
+# Variables
 var portalRoom: String
 var level: String
 var language = "English"

@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+# Change menu label language
 func _ready():
 	match Global.language:
 		"English":

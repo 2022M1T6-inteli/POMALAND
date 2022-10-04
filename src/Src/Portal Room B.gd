@@ -3,6 +3,7 @@ extends Node2D
 var chrLookRight = Vector2(1, 0)
 var scene
 
+# Change stars according to score in the game
 func _ready():
 	$"YSort/Physics Player/animationTree".set("parameters/Idle/blend_position", chrLookRight)
 	if Global.portalRoom == "WaterWorld":

@@ -1,18 +1,18 @@
 extends Node
-
+#Dictionary that directs the texts acording to the selected language to different lists containing the lines of menguzzi
 var meneguzziTalk = {
 	"english": textenMeneguzzi,
 	"portuguese": textportMeneguzzi
 }
-
+#consts that store the hint variables in english
 const textenMoveHint = "Hint: Use\n↑ ← ↓ →\nto move around"
-
-const textportMoveHint = "Dica: Use\n↑ ← ↓ →\npara se mover"
-
 const textenInteractHint = "Hint Use\n(Z)\nto interact"
-
+#consts that store the hint variables in portuguese
+const textportMoveHint = "Dica: Use\n↑ ← ↓ →\npara se mover"
 const textportInteractHint = "Dica: Use\n(Z)\npara interagir"
 
+
+#const structured in a form of a list to store the lines of meneguzzi in english
 const textenMeneguzzi = [
 	"null",
 	"(Meneguzzi): Aahh, quick! here!. I don't have much time….",
@@ -29,7 +29,7 @@ const textenMeneguzzi = [
 	"(Meneguzzi): Here is a quick reminder: Use the red mats to access the other floors",
 	"(Meneguzzi): PROMISE ME YOU WILL SAVE\n EVERYONE. BEST OF LUCK!"
 ]
-
+#const structured in a form of a list to store the lines of meneguzzi in portuguese
 const textportMeneguzzi = [
 	"null",
 	"(Meneguzzi): Aahh, rápido! aqui!. eu não tenho muito tempo.",

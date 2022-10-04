@@ -1,6 +1,7 @@
 extends CanvasLayer
 var scene 
 
+# Return to the level you were previously in
 func _on_ButtonRetry_pressed() -> void:
 	match Global.level:
 		"Water":

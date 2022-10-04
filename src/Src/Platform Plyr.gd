@@ -47,17 +47,20 @@ func Jump(delta):
 			jumpRawDir = 0
 			#$"../jumpSFX".play()
 			motionVector = Vector2(jumpDir, -jumpForce)
+
+# All movement fuctions combined
 func Movement(delta):
 	MoveHorizontally()
 	Gravity()
 	Jump(delta)
 	motionVector = move_and_slide(motionVector, NORMAL)
 
-
+# Funcs that run on delta
 func _physics_process(delta):
 	Movement(delta)
 	Animate()
 
+# Change player animations
 func Animate():
 	$AnimationTree.set("parameters/Move/blend_position", motionVector)
 	if motionVector.x != 0:

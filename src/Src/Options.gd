@@ -2,9 +2,11 @@ extends Control
 
 var scene
 
+# Return to menu
 func _on_BackBtn_pressed():
 	scene = get_tree().change_scene("res://Scenes/Menu.tscn")
-	
+
+# Change game language
 func _on_LangButton_pressed():
 	if Global.language == "English":
 		Global.language = "Portuguese"

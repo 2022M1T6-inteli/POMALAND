@@ -7,7 +7,8 @@ func _ready():
 	$"YSort/Physics Player/animationTree".set("parameters/Idle/blend_position", chrLookUp)
 	Global.portalRoom = "Earthquake"
 	ShowStars()
-	
+
+# Change stars according to score in the game
 func ShowStars():
 	match Global.earthStar:
 		0:

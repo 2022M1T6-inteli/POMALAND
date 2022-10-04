@@ -18,6 +18,7 @@ func _input(event):
 		if PauseSwitch == true:
 			$CenterContainer/VBoxContainer/Return.grab_focus()
 
+# Change label language
 func ChangeLanguage():
 	match Global.language:
 		"English":
@@ -26,12 +27,14 @@ func ChangeLanguage():
 		"Portuguese":
 			$CenterContainer/VBoxContainer/Return.text = "Retornar ao jogo"
 			$CenterContainer/VBoxContainer/Menu.text = "Sair ao menu"
+
 # Press return to return to game
 func _on_Return_pressed():
 	get_tree().paused = false
 	PauseSwitch = not PauseSwitch
 	visible = PauseSwitch
 
+# Go back to menu
 func _on_Menu_pressed():
 	get_tree().paused = false
 	scene = get_tree().change_scene("res://Scenes/Menu.tscn")
