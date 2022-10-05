@@ -147,7 +147,6 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Portal 1"]
 position = Vector2( 0, 8 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 offset = Vector2( 0, -8 )
 
@@ -182,7 +181,7 @@ visible = false
 position = Vector2( 411, 271 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-frame = 2
+frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -205,7 +204,6 @@ visible = false
 position = Vector2( 553, 153 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -229,7 +227,7 @@ visible = false
 position = Vector2( 295, 19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-frame = 2
+frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -252,7 +250,7 @@ visible = false
 position = Vector2( 22, -19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 6 )
-frame = 1
+frame = 2
 speed_scale = 0.8
 playing = true
 
@@ -262,6 +260,12 @@ position = Vector2( 0, -1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HintArea"]
 position = Vector2( -9.5, 31 )
 shape = SubResource( 7 )
+
+[node name="HintArea2" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HintArea2"]
+scale = Vector2( 16.92, 16.92 )
+polygon = PoolVector2Array( -3.7234, 5.37825, 2.71868, 5.43735, 2.60047, -1.77305, 8.98345, -1.83215, 9.04255, 9.81087, -3.7234, 9.92908 )
 
 [node name="Hint" type="CanvasLayer" parent="."]
 visible = false
@@ -299,3 +303,5 @@ autowrap = true
 [connection signal="body_exited" from="Mesa/Area2D" to="Mesa" method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="HintArea" to="." method="_on_HintArea_body_entered"]
 [connection signal="body_exited" from="HintArea" to="." method="_on_HintArea_body_exited"]
+[connection signal="body_entered" from="HintArea2" to="." method="_on_HintArea2_body_entered"]
+[connection signal="body_exited" from="HintArea2" to="." method="_on_HintArea2_body_exited"]

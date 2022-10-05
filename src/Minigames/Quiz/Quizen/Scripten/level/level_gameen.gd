@@ -19,7 +19,7 @@ onready var questionAudio := $Question_infoen/Panelen/Question_Audioen
 func _ready():
 	for _button in $Question_holderen.get_children():
 		buttons.append(_button)
-	
+
 	quizShuffle = randomizeArray(bdQuiz.bd)
 	loadQuiz()
 
@@ -92,14 +92,11 @@ func gameOver() -> void:
 		$FimEN/Label.text = ("You got 4/4")
 	else:
 		$CanvasLayerEN.show()
-		$CanvasLayerEN/Label.text = str(correct, "/", bdQuiz.bd.size())
 
 
 
 func _on_ButtonRetry_pressed():
 	TransitionScreen.fadeIn("res://Minigames/Quiz/Quizen/Scenesen/Quiz.tscn")
 
-
-#func _on_Buttonhub_pressed():
-	#cena do crédito
-	#TransitionScreen.fadeIn("")
+func _on_Button_pressed():
+	TransitionScreen.fadeIn("res://Scenes/Credits.tscn")

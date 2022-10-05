@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Minigames/Quiz/Quizpt/resourcequizpt/bd/bd_quiz_game.tres" type="Resource" id=1]
 [ext_resource path="res://Minigames/Quiz/Quizpt/Scriptquizpt/level/level_game.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Minigames/Quiz/Quizpt/spritesquizpt/New Piskel.png" type="Texture" id=4]
 [ext_resource path="res://game over/BtnAgain.png" type="Texture" id=5]
 [ext_resource path="res://game over/GameOver.png" type="Texture" id=6]
-[ext_resource path="res://Minigames/Quiz/Quizpt/spritesquizpt/WhatsApp Image 2022-10-05 at 13.21.59.jpeg" type="Texture" id=7]
+[ext_resource path="res://Assets/Images/Custom/Congratport.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/PressStart2P.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Assets/Themes/Button Theme.tres" type="Theme" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -224,39 +226,20 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=36]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=37]
-resource_name = "reveal"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="DynamicFont" id=39]
+size = 11
+outline_size = 1
+outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=38]
 size = 11
 font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=40]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
 
 [node name="Quiz" type="Control"]
 anchor_right = 1.0
@@ -427,37 +410,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -54.0
-margin_top = 55.0
-margin_right = 54.0
-margin_bottom = 72.0
+margin_left = -127.0
+margin_top = 46.0
+margin_right = 130.0
+margin_bottom = 127.0
+custom_colors/font_color = Color( 0.843137, 0.482353, 0.0980392, 1 )
+custom_fonts/font = SubResource( 39 )
+text = "Você não conseguiu criar a cura, e o resto do mundo foi infectado."
 align = 1
 valign = 1
+autowrap = true
 
 [node name="Fim" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="Fim"]
-margin_right = 1224.0
-margin_bottom = 842.0
-rect_scale = Vector2( 0.392, 0.32 )
+margin_left = -35.0
+margin_right = 1771.0
+margin_bottom = 1134.0
+rect_scale = Vector2( 0.291772, 0.238182 )
 texture = ExtResource( 7 )
 stretch_mode = 3
-
-[node name="Buttonhub" type="TextureButton" parent="Fim"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -15.0
-margin_top = 52.0
-margin_right = 22.0
-margin_bottom = 71.0
-texture_normal = ExtResource( 5 )
-
-[node name="anim" type="AnimationPlayer" parent="Fim/Buttonhub"]
-anims/RESET = SubResource( 36 )
-anims/reveal = SubResource( 37 )
 
 [node name="Label" type="Label" parent="Fim"]
 anchor_left = 0.5
@@ -465,9 +438,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -96.0
-margin_top = 85.0
+margin_top = 98.0
 margin_right = 96.0
-margin_bottom = 102.0
+margin_bottom = 115.0
 custom_colors/font_color = Color( 0.952941, 1, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -476,5 +449,19 @@ text = "Você acertou 4/4"
 align = 1
 valign = 1
 
+[node name="Button" type="Button" parent="Fim"]
+margin_left = 113.0
+margin_top = 144.0
+margin_right = 349.0
+margin_bottom = 166.0
+theme = ExtResource( 9 )
+custom_colors/font_color_focus = Color( 0.921569, 0.909804, 0.0862745, 1 )
+custom_colors/font_color = Color( 0.921569, 0.909804, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0.933333, 0.929412, 0.698039, 1 )
+custom_colors/font_color_pressed = Color( 0.921569, 0.497396, 0.0862745, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Finalizar Jogo"
+flat = true
+
 [connection signal="pressed" from="CanvasLayerPT/ButtonRetry" to="." method="_on_ButtonRetry_pressed"]
-[connection signal="pressed" from="Fim/Buttonhub" to="." method="_on_Buttonhub_pressed"]
+[connection signal="pressed" from="Fim/Button" to="." method="_on_Button_pressed"]

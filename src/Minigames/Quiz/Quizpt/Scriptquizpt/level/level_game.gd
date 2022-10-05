@@ -92,12 +92,13 @@ func gameOver() -> void:
 		$Fim/Label.text = str("Você acertou 4/4")
 	else:
 		$CanvasLayerPT.show()
-		$CanvasLayerPT/Label.text = str("Você acertou ",correct, "/", bdQuiz.bd.size())
 
 
 func _on_ButtonRetry_pressed():
 	TransitionScreen.fadeIn("res://Minigames/Quiz/Quizpt/Scenesquizpt/Quiz.tscn")
 
-#cena do crédito
-#func _on_Buttonhub_pressed():
-	#TransitionScreen.fadeIn("")
+
+
+
+func _on_Button_pressed():
+	TransitionScreen.fadeIn("res://Scenes/Credits.tscn")

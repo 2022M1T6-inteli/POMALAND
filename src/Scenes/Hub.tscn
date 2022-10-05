@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=2]
@@ -41031,11 +41031,6 @@ extents = Vector2( 8.22581, 14.3548 )
 [sub_resource type="RectangleShape2D" id=179]
 extents = Vector2( 11.129, 19.0323 )
 
-[sub_resource type="RectangleShape2D" id=172]
-extents = Vector2( 40, 56 )
-
-[sub_resource type="RectangleShape2D" id=173]
-
 [sub_resource type="SpriteFrames" id=174]
 animations = [ {
 "frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 13 ) ],
@@ -41044,7 +41039,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=172]
+extents = Vector2( 40, 56 )
+
+[sub_resource type="RectangleShape2D" id=173]
+
 [sub_resource type="DynamicFont" id=177]
+outline_size = 1
+font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=180]
 outline_size = 1
 font_data = ExtResource( 18 )
 
@@ -41198,8 +41202,17 @@ text = "eletroluz"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fridge/Geladeira"]
 position = Vector2( 1.12903, 4.19355 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 179 )
+disabled = true
+
+[node name="dbox" type="AnimatedSprite" parent="fridge"]
+visible = false
+position = Vector2( 0, -19 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 174 )
+frame = 1
+speed_scale = 0.8
+playing = true
 
 [node name="Physics Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 73, 125 )
@@ -41229,7 +41242,7 @@ visible = false
 position = Vector2( 0, -19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 174 )
-frame = 1
+frame = 3
 speed_scale = 0.8
 playing = true
 
@@ -41246,6 +41259,18 @@ text = "Hint: Use
 to move around"
 align = 1
 valign = 1
+
+[node name="Final" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label2" type="Label" parent="Final"]
+margin_left = 122.0
+margin_top = 239.0
+margin_right = 378.0
+margin_bottom = 255.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 180 )
+text = "Find the fridge!"
 
 [node name="Pause Canvas" parent="." instance=ExtResource( 5 )]
 

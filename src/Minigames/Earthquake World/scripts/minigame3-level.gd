@@ -2,7 +2,9 @@ extends Node2D
 
 var signsRead: int
 onready var plyr = get_node("YSort/person-machado")
-var readHint = false
+var readHint1 = false
+var readHint2 = false
+var hintLabel = []
 
 func _ready():
 	Global.level = "Earthquake"
@@ -36,10 +38,10 @@ func _on_interact_body_entered(body):
 
 
 func _on_HintArea_body_entered(body):
-	if readHint == false:
+	if readHint1 == false:
 		if body == plyr:
-			$Hint.visible = true
-			readHint = true
+			Hint1()
+			readHint1 = true
 
 func _on_HintArea_body_exited(body):
 	if body == plyr:
@@ -48,8 +50,32 @@ func _on_HintArea_body_exited(body):
 func ChangeLang():
 	match Global.language:
 		"Portuguese":
-			$Hint/Label.text = "Dica: Procure por todos os objetos espalhados pelo terremoto para ganhar estrelas"
-			$Hint/Label2.text = "Tenha cuidado com os inimigos"
+			hintLabel.append("Dica: Procure por todos os objetos espalhados pelo terremoto para ganhar estrelas")
+			hintLabel.append("Tenha cuidado com os inimigos")
+			hintLabel.append("Dica: Use (Espaço) para atacar")
 		"English":
-			$Hint/Label.text = "Hint: Search for all the objects scattered by the earthquake to earn stars"
-			$Hint/Label2.text = "Watch out for the enemies!"
+			hintLabel.append("Hint: Search for all the objects scattered by the earthquake to earn stars")
+			hintLabel.append("Watch out for the enemies!")
+			hintLabel.append("Hint: Use (Backspace) to attack")
+
+func Hint1():
+	$Hint.visible = true
+	$Hint/Label.text = hintLabel[0]
+	$Hint/Label2.text = hintLabel[1]
+
+func Hint2():
+	$Hint/Label2.visible = false
+	$Hint.visible = true
+	$Hint/Label.text = hintLabel[2]
+
+
+func _on_HintArea2_body_entered(body):
+	if readHint2 == false:
+		if body == plyr:
+			Hint2()
+			readHint2 = true
+
+
+func _on_HintArea2_body_exited(body):
+	if body == plyr:
+		$Hint.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Minigames/Quiz/Quizen/spritesen/New Piskel.png" type="Texture" id=1]
 [ext_resource path="res://Minigames/Quiz/Quizen/resourceen/question/question1.tres" type="Resource" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://Minigames/Quiz/Quizen/Scripten/resource/bd_quizen.gd" type="Script" id=8]
 [ext_resource path="res://Minigames/Quiz/Quizpt/Fontsquizpt/PressStart2P.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://game over/GameOver.png" type="Texture" id=10]
-[ext_resource path="res://Minigames/Quiz/Quizpt/spritesquizpt/WhatsApp Image 2022-10-05 at 13.21.59.jpeg" type="Texture" id=11]
+[ext_resource path="res://Assets/Images/Custom/Congraten.png" type="Texture" id=11]
 [ext_resource path="res://game over/BtnAgain.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Fonts/PressStart2P.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/Themes/Button Theme.tres" type="Theme" id=14]
 
 [sub_resource type="Resource" id=30]
 script = ExtResource( 8 )
@@ -233,9 +235,20 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=38]
+size = 11
+outline_size = 1
+outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+font_data = ExtResource( 13 )
+
 [sub_resource type="DynamicFont" id=37]
 size = 12
 font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=39]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
 
 [node name="Quizen" type="Control"]
 anchor_right = 1.0
@@ -365,48 +378,6 @@ text = "oioioi"
 icon = ExtResource( 1 )
 icon_align = 1
 
-[node name="GameOveren" type="Panel" parent="."]
-visible = false
-margin_right = 480.0
-margin_bottom = 270.0
-
-[node name="txtinfoen" type="Label" parent="GameOveren"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -95.0
-margin_right = 32.0
-margin_bottom = -55.0
-text = "Your got:"
-align = 1
-valign = 1
-
-[node name="txtResulten" type="Label" parent="GameOveren"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -16.0
-margin_top = -25.0
-margin_right = 16.0
-margin_bottom = -11.0
-text = "0/0"
-align = 1
-valign = 1
-
-[node name="Button_restarten" type="Button" parent="GameOveren"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -59.5
-margin_top = 35.0
-margin_right = 59.5
-margin_bottom = 74.0
-text = "Play again"
-
 [node name="CanvasLayerEN" type="CanvasLayer" parent="."]
 visible = false
 
@@ -448,18 +419,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -54.0
-margin_top = 55.0
-margin_right = 54.0
-margin_bottom = 72.0
+margin_left = -127.0
+margin_top = 46.0
+margin_right = 130.0
+margin_bottom = 127.0
+custom_colors/font_color = Color( 0.843137, 0.482353, 0.0980392, 1 )
+custom_fonts/font = SubResource( 38 )
+text = "You couldn't create
+the cure, and the rest
+of the world was infected."
+align = 1
+valign = 1
+autowrap = true
 
 [node name="FimEN" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="FimEN"]
-margin_right = 1224.0
-margin_bottom = 842.0
-rect_scale = Vector2( 0.392, 0.32 )
+margin_left = -32.0
+margin_top = 1.0
+margin_right = 1774.0
+margin_bottom = 1135.0
+rect_scale = Vector2( 0.29141, 0.237886 )
 texture = ExtResource( 11 )
 stretch_mode = 3
 
@@ -468,15 +449,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -82.0
-margin_top = 84.0
-margin_right = 110.0
-margin_bottom = 101.0
+margin_left = -98.0
+margin_top = 91.0
+margin_right = 94.0
+margin_bottom = 108.0
 custom_colors/font_color = Color( 0.952941, 1, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 37 )
 text = "Você acertou 4/4"
 
-[connection signal="pressed" from="GameOveren/Button_restarten" to="." method="_on_Button_restart_pressed"]
+[node name="Button" type="Button" parent="FimEN"]
+margin_left = 113.0
+margin_top = 144.0
+margin_right = 349.0
+margin_bottom = 166.0
+theme = ExtResource( 14 )
+custom_colors/font_color_focus = Color( 0.921569, 0.909804, 0.0862745, 1 )
+custom_colors/font_color = Color( 0.921569, 0.909804, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0.933333, 0.929412, 0.698039, 1 )
+custom_colors/font_color_pressed = Color( 0.921569, 0.497396, 0.0862745, 1 )
+custom_fonts/font = SubResource( 39 )
+text = "Finish Game"
+flat = true
+
 [connection signal="pressed" from="CanvasLayerEN/ButtonRetry" to="." method="_on_ButtonRetry_pressed"]
+[connection signal="pressed" from="FimEN/Button" to="." method="_on_Button_pressed"]
