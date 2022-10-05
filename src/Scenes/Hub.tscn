@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=2]
+[gd_scene load_steps=165 format=2]
 
 [ext_resource path="res://Assets/Images/Modern Interiors Free v2.2/Bob_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Images/Modern Office Revamped v1.1/Modern_Office_Revamped/Modern_Office_16x16.png" type="Texture" id=2]
@@ -41028,6 +41028,9 @@ extents = Vector2( 24, 5 )
 [sub_resource type="RectangleShape2D" id=178]
 extents = Vector2( 8.22581, 14.3548 )
 
+[sub_resource type="RectangleShape2D" id=179]
+extents = Vector2( 11.129, 19.0323 )
+
 [sub_resource type="RectangleShape2D" id=172]
 extents = Vector2( 40, 56 )
 
@@ -41176,12 +41179,10 @@ position = Vector2( 353, 30 )
 scale = Vector2( 1.55, 1.55 )
 
 [node name="sprite" type="Sprite" parent="fridge"]
-scale = Vector2( 1, 1 )
 texture = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="fridge"]
 position = Vector2( -2.41936, 1.45161 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 178 )
 
 [node name="Label" type="Label" parent="fridge"]
@@ -41192,6 +41193,13 @@ margin_bottom = 17.2258
 rect_scale = Vector2( 0.144281, 0.144281 )
 custom_colors/font_color = Color( 0, 0.27451, 0.662745, 1 )
 text = "eletroluz"
+
+[node name="Geladeira" type="Area2D" parent="fridge"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fridge/Geladeira"]
+position = Vector2( 1.12903, 4.19355 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 179 )
 
 [node name="Physics Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 73, 125 )
@@ -41221,7 +41229,7 @@ visible = false
 position = Vector2( 0, -19 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 174 )
-frame = 3
+frame = 1
 speed_scale = 0.8
 playing = true
 
@@ -41253,6 +41261,8 @@ shape = SubResource( 176 )
 
 [connection signal="body_entered" from="ElevatorArea 2" to="ElevatorArea 2" method="_on_ElevatorArea_2_body_entered"]
 [connection signal="body_entered" from="ElevatorArea" to="ElevatorArea" method="_on_ElevatorArea_body_entered"]
+[connection signal="body_entered" from="fridge/Geladeira" to="." method="_on_Geladeira_body_entered"]
+[connection signal="body_exited" from="fridge/Geladeira" to="." method="_on_Geladeira_body_exited"]
 [connection signal="body_entered" from="Meneguzzi/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Meneguzzi/Area2D" to="Meneguzzi" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Meneguzzi/Area2D" to="." method="_on_Area2D_body_exited"]

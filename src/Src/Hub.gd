@@ -2,8 +2,7 @@ extends Node2D
 
 # Variables
 var dialogues = load("res://Src/HubDialogues.gd").new()
-
-
+var enterFridge = false
 # Change player position according to the room
 func _ready():
 	if Global.portalRoom == "Earthquake":
@@ -43,3 +42,23 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body == $"Physics Player":
 		$HintCanvas.visible = false
+		
+func _on_Geladeira_body_entered(body):
+	if body == $"Physics Player":
+		enterFridge = true
+
+
+func _on_Geladeira_body_exited(body):
+	if body == $"Physics Player":
+		enterFridge = false
+
+func Fridge():
+	if Input.is_action_just_pressed("select") and enterFridge == true:
+		match Global.language:
+			"English":
+				TransitionScreen.fadeIn("res://Minigames/Quiz/Quizen/Scenesen/Quiz.tscn")
+			"Portuguese":
+				TransitionScreen.fadeIn("res://Minigames/Quiz/Quizpt/Scenesquizpt/Quiz.tscn")
+
+func _process(_delta):
+	Fridge()

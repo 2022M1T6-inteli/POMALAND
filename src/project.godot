@@ -8,6 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "BDQuiz",
+"language": "GDScript",
+"path": "res://Minigames/Quiz/Quizpt/Scriptquizpt/resource/bd_quiz.gd"
+}, {
+"base": "Resource",
+"class": "BDQuizen",
+"language": "GDScript",
+"path": "res://Minigames/Quiz/Quizen/Scripten/resource/bd_quizen.gd"
+}, {
+"base": "Resource",
+"class": "QuizQuestion",
+"language": "GDScript",
+"path": "res://Minigames/Quiz/Quizpt/Scriptquizpt/resource/res_question.gd"
+}, {
+"base": "Resource",
+"class": "QuizQuestionen",
+"language": "GDScript",
+"path": "res://Minigames/Quiz/Quizen/Scripten/resource/res_questionen.gd"
+} ]
+_global_script_class_icons={
+"BDQuiz": "",
+"BDQuizen": "",
+"QuizQuestion": "",
+"QuizQuestionen": ""
+}
+
 [application]
 
 config/name="POMA LAND"
@@ -23,7 +51,6 @@ TransitionScreen="*res://Scenes/transitionScreen.tscn"
 
 window/size/width=480
 window/size/height=270
-window/size/resizable=false
 window/size/fullscreen=true
 window/size/test_width=1920
 window/size/test_height=1080
