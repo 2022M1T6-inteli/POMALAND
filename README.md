@@ -8,16 +8,17 @@
 
 ## Thunder Tech
 
-## Integrantes: <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victor-genioli-386a6a249/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a>
+## Integrantes:
+- <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>
+- <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>
+- <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>
+- <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>
+- <a href="https://www.linkedin.com/in/victor-genioli-386a6a249/">Victor Corazza Genioli de Oliveira</a>
+- <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a>
 
 ## Descrição
 > O projeto foi desenvolvido pelo grupo Thunder Tech, no módulo 1 da turma de 2022.2 da Inteli (Instituto de Tecnologia e Liderança). A equipe propôs um jogo para ajudar certas carências propostas pela Dell.
 
-<br><br>
-<p align="center">
-<img src="https://i.imgur.com/D5VzuU5.png" alt="NOME DO JOGO" border="0">
-  Game by <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victor-genioli-386a6a249/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a> // <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href= "https://www.inteli.edu.br/">Inteli</a>
-</p>
 <br><br>
 Nosso projeto serve como um método de suporte aos funcionários recém contratados na Dell Brasil. O objetivo principal é fazé-los entender o novo modelo de produto implementado pela empresa. Assim, por meio de mecânicas únicas e divertidas, o jogador consegue absorver o conteúdo de forma lúdica e gamificada.
 <br><br>
@@ -26,15 +27,13 @@ May the force be with you!
 
 ## 🛠 Estrutura de pastas
 
--Raiz<br>
-|<br>
 |-->docs<br>
 |-->documentos<br>
-  &emsp;|-->antigos<br>
-  &emsp;|GDD.docx ou Documentação.docx<br>
+  &emsp;|-->outros<br>
+  &emsp;|T6_G1_V3_Game_Design_Document.docx<br>
+  &emsp;|T6_G1_V3_Game_Design_Document.pdf<br>
 |-->executáveis<br>
   &emsp;|-->windows<br>
-  &emsp;|-->android<br>
   &emsp;|-->HTML<br>
 |-->imagens<br>
 |-->src<br>
@@ -96,7 +95,7 @@ A cada atualização os detalhes devem ser lançados aqui.
 
 ## 📋 Licença/License
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">POMA Land</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName"> <a href="https://www.inteli.edu.br/">INTELI </a>, <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victor-genioli-386a6a249/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a> <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/2022M1T6-inteli/PomaLand">POMA Land</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName"> <a href="https://github.com/InteliProjects">INTELI </a>, <a href="https://www.linkedin.com/in/guilherme-novaes-lima-84303b232/">Guilherme Novaes Lima</a>, <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva </a>, <a href="https://www.linkedin.com/in/marcelo-saadi-pessini-003212209">Marcelo Saad Pessini</a>, <a href="https://www.linkedin.com/in/samuel-lucas-241a77210/">Samuel Lucas de Almeida</a>, <a href="https://www.linkedin.com/in/victor-genioli-386a6a249/">Victor Corazza Genioli de Oliveira</a>, <a href="https://www.linkedin.com/in/yago-ara%C3%BAjo-461816247/">Yago Araújo do Vale Moreira</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 
