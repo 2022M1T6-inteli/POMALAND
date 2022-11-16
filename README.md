@@ -23,9 +23,13 @@
 Nosso projeto serve como um método de suporte aos funcionários recém contratados na Dell Brasil. O objetivo principal é fazé-los entender o novo modelo de produto implementado pela empresa. Assim, por meio de mecânicas únicas e divertidas, o jogador consegue absorver o conteúdo de forma lúdica e gamificada.
 <br><br>
 May the force be with you!
-<br><br>
+<br>
 
-## 🛠 Estrutura de pastas
+## 🎮 Jogue agora
+
+Para acessar o jogo diretamente do seu navegador entre no seguinte link: [PomaLand](https://2022m1t6-inteli.github.io/PomaLand/)
+
+## 📁 Estrutura de pastas
 
 |-->docs<br>
 |-->documentos<br>
