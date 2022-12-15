@@ -27,7 +27,7 @@ May the force be with you!
 
 ## 🎮 Jogue agora
 
-Para acessar o jogo diretamente do seu navegador entre no seguinte link: [PomaLand](https://2022m1t6-inteli.github.io/PomaLand/)
+Para acessar o jogo diretamente do seu navegador entre no seguinte link: [PomaLand](https://2022m1t6-inteli.github.io/Thunder-Tech/)
 
 ## 📁 Estrutura de pastas
 
